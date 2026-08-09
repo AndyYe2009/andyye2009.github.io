@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Andy — AI, game dev, and software engineering">
+  <title>Andy - Projects</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Nav placeholder -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Main content -->
+  <main class="page-main">
+    <div class="container">
+
+      <!-- Page header -->
+      <div class="page-header">
+        <h1>Projects</h1>
+        <p>A collection of projects I've built — spanning AI, game development, tooling, and web dev.</p>
+      </div>
+
+      <!-- Projects grid -->
+      <div class="projects-grid">
+
+        <!-- Archer vs Assassin -->
+        <article class="project-card">
+          <a href="archer-vs-assassin.html" class="project-card-link" aria-label="Archer vs Assassin details"></a>
+          <div class="project-card-img"><img src="images/archer-vs-assassin-cover.png" alt="Archer vs Assassin AI Battle" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="project-card-body">
+            <h3>Archer vs Assassin — AI Battle Training System</h3>
+            <p>
+              A Unity 2D symmetric combat training system where 100 AI units battle on a 120×80 battlefield.
+              Powered by <strong>genetic algorithms</strong> and <strong>neural networks</strong> (48→48→7),
+              each generation selects the best-performing archer and assassin, clones their brains,
+              and mutates them for the next round.
+            </p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">
+              <strong>Highlights:</strong> team vision sharing, cover-based tactics, ammo logistics (10 arrows + 4 supply points),
+              focus-fire coordination, assassin bait mechanics, exploration grid with fog-of-war,
+              anti-regression best-ever tracking, and atomic JSON save/load with crash recovery.
+            </p>
+            <div class="project-card-tags">
+              <span class="tag">Unity 2022.3</span>
+              <span class="tag">C#</span>
+              <span class="tag">Genetic Algorithm</span>
+              <span class="tag">Neural Network</span>
+              <span class="tag">AI</span>
+              <span class="tag">Game Dev</span>
+              <span class="tag">ML-Agents</span>
+            </div>
+            <div class="project-card-links">
+              <a href="archer-vs-assassin.html">Read More →</a>
+              <a href="#" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Shogun AI -->
+        <article class="project-card">
+          <a href="shogun-ai.html" class="project-card-link" aria-label="Shogun AI details"></a>
+          <div class="project-card-img"><img src="images/shogun-ai-cover.png" alt="Shogun AI Auto-Play" style="width:100%;height:100%;object-fit:cover;"></div>
+          <div class="project-card-body">
+            <h3>Shogun AI — Game Auto-Play System</h3>
+            <p>
+              A Python-based AI that <strong>automatically plays Shogun Showdown</strong> — a turn-based tactical roguelike.
+              The pipeline captures the game screen, parses the state with <strong>OpenCV pixel analysis</strong>,
+              then makes tactical decisions via a multi-layer <strong>rule engine</strong> or local <strong>LLM (Ollama)</strong>.
+            </p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">
+              <strong>Highlights:</strong> threat-response priority system, lethal combo calculator (1/2/3-skill combos),
+              smart positioning with Wanderer swap passive, stuck detection with auto-recovery,
+              a <strong>playbook system</strong> that records successful tactics and replays them in similar situations,
+              and multi-backend support (rule engine / Ollama / Claude API).
+            </p>
+            <div class="project-card-tags">
+              <span class="tag">Python</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">AI</span>
+              <span class="tag">Game Automation</span>
+              <span class="tag">Ollama</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">pyautogui</span>
+            </div>
+            <div class="project-card-links">
+              <a href="shogun-ai.html">Read More →</a>
+              <a href="#" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-card-img">🌐</div>
+          <div class="project-card-body">
+            <h3>CollabBoard</h3>
+            <p>An online collaborative whiteboard with real-time drawing, text annotations, and image uploads via WebSocket.</p>
+            <div class="project-card-tags">
+              <span class="tag">TypeScript</span>
+              <span class="tag">WebSocket</span>
+              <span class="tag">Canvas</span>
+              <span class="tag">Redis</span>
+            </div>
+            <div class="project-card-links">
+              <a href="#" target="_blank" rel="noopener">GitHub →</a>
+              <a href="#" target="_blank" rel="noopener">Demo →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-card-img">📊</div>
+          <div class="project-card-body">
+            <h3>DataViz Dashboard</h3>
+            <p>An interactive data visualization dashboard with multi-source data connectors and customizable chart widgets.</p>
+            <div class="project-card-tags">
+              <span class="tag">Vue.js</span>
+              <span class="tag">D3.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+            </div>
+            <div class="project-card-links">
+              <a href="#" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project-card">
+          <div class="project-card-img">🤖</div>
+          <div class="project-card-body">
+            <h3>NotifyBot</h3>
+            <p>A cross-platform notification bot that sends alerts to Telegram, Slack, DingTalk, and more — all from one API.</p>
+            <div class="project-card-tags">
+              <span class="tag">Go</span>
+              <span class="tag">Docker</span>
+              <span class="tag">REST API</span>
+            </div>
+            <div class="project-card-links">
+              <a href="#" target="_blank" rel="noopener">GitHub →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project-card">
+          <div class="project-card-img">📝</div>
+          <div class="project-card-body">
+            <h3>MarkNote</h3>
+            <p>A clean Markdown note-taking app with live preview, tag management, and full-text search. Works offline.</p>
+            <div class="project-card-tags">
+              <span class="tag">Electron</span>
+              <span class="tag">React</span>
+              <span class="tag">SQLite</span>
+            </div>
+            <div class="project-card-links">
+              <a href="#" target="_blank" rel="noopener">GitHub →</a>
+              <a href="#" target="_blank" rel="noopener">Download →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andy's personal portfolio showcasing AI, game dev, and software projects">
+  <title>Andy - Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Nav placeholder -->
+  <div id="nav-placeholder"></div>
+
+  <!-- Main content -->
+  <main class="page-main">
+    <div class="container">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-photo">
+          <img src="images/andy-photo.jpg" alt="Andy">
+        </div>
+        <h1>Hi, I'm Andy</h1>
+        <p class="hero-tagline">Student · AI Developer · Artist</p>
+        <p class="hero-sub">
+          Grade 12 at Shanghai Datong High School — building at the intersection of
+          artificial intelligence, game development, and creative art.
+        </p>
+        <div class="hero-actions">
+          <a href="projects.html" class="btn btn-primary">View Projects</a>
+          <a href="about.html" class="btn btn-outline">Learn More</a>
+        </div>
+      </section>
+
+      <!-- Featured Projects -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Featured Projects</h2>
+          <p>A few things I've been working on lately</p>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Archer vs Assassin -->
+          <article class="project-card">
+            <a href="archer-vs-assassin.html" class="project-card-link" aria-label="Archer vs Assassin details"></a>
+            <div class="project-card-img"><img src="images/archer-vs-assassin-cover.png" alt="Archer vs Assassin AI Battle" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="project-card-body">
+              <h3>Archer vs Assassin — AI Battle</h3>
+              <p>A Unity-based symmetric combat training system. 100 AI units (50 archers + 50 assassins) evolve battle tactics through genetic algorithms and neural networks — featuring 48-dimension perception, team coordination, cover tactics, and ammo logistics.</p>
+              <div class="project-card-tags">
+                <span class="tag">Unity</span>
+                <span class="tag">C#</span>
+                <span class="tag">Genetic Algorithm</span>
+                <span class="tag">Neural Network</span>
+                <span class="tag">AI</span>
+              </div>
+              <div class="project-card-links">
+                <a href="archer-vs-assassin.html">Read More →</a>
+                <a href="#" target="_blank" rel="noopener">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Shogun AI -->
+          <article class="project-card">
+            <a href="shogun-ai.html" class="project-card-link" aria-label="Shogun AI details"></a>
+            <div class="project-card-img"><img src="images/shogun-ai-cover.png" alt="Shogun AI Auto-Play" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div class="project-card-body">
+              <h3>Shogun AI — Game Auto-Play</h3>
+              <p>A Python-based AI that automatically plays Shogun Showdown by capturing the game screen, analyzing it with OpenCV, and making tactical decisions — featuring a rule engine with threat response, lethal combo calculation, and a playbook system that learns from successful strategies.</p>
+              <div class="project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag">OpenCV</span>
+                <span class="tag">AI</span>
+                <span class="tag">Game Automation</span>
+                <span class="tag">Ollama</span>
+              </div>
+              <div class="project-card-links">
+                <a href="shogun-ai.html">Read More →</a>
+                <a href="#" target="_blank" rel="noopener">GitHub →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card">
+            <div class="project-card-img">🌐</div>
+            <div class="project-card-body">
+              <h3>CollabBoard</h3>
+              <p>A real-time collaborative whiteboard powered by WebSockets. Draw, annotate, and upload together.</p>
+              <div class="project-card-tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">WebSocket</span>
+              </div>
+              <div class="project-card-links">
+                <a href="#" target="_blank" rel="noopener">GitHub →</a>
+                <a href="#" target="_blank" rel="noopener">Demo →</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
