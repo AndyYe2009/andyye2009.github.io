@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="UCLA Game Lab Summer Program — game design, 3D & 2D projects by Andy">
+  <title>Andy - UCLA Game Lab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-hero-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto 32px;
+      display: block;
+    }
+    .project-detail h2 {
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-border);
+    }
+    .project-detail h3 { margin-top: 28px; margin-bottom: 10px; }
+    .project-detail p, .project-detail li { color: var(--color-text-muted); line-height: 1.8; }
+    .project-detail ul { margin: 12px 0 12px 24px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem;
+    }
+    .back-link:hover { color: var(--color-accent); }
+    .project-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .gallery-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .gallery-card img, .gallery-card iframe {
+      width: 100%;
+      display: block;
+    }
+    .gallery-card .gallery-info {
+      padding: 14px 18px;
+    }
+    .gallery-card .gallery-info h3 {
+      font-size: 1rem; margin-bottom: 4px;
+    }
+    .gallery-card .gallery-info p {
+      font-size: 0.85rem; color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container">
+
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <div class="page-header">
+        <h1>UCLA Game Lab Summer Program</h1>
+        <p>An intensive game development experience — exploring game design, interactive media, and creative coding</p>
+      </div>
+
+      <img src="images/ucla-game-lab-cover.png" alt="UCLA Game Lab Summer Program" class="project-hero-img">
+
+      <div class="project-detail">
+
+        <h2>Overview</h2>
+        <p>
+          In July 2025, I attended the <strong>UCLA Game Lab Summer Program</strong>, an intensive
+          game development experience at one of the world's leading game design programs. I explored
+          <strong>game design principles</strong>, <strong>interactive media</strong>, and
+          <strong>creative coding</strong> — working hands-on to create multiple game prototypes.
+        </p>
+
+        <h2>Projects</h2>
+
+        <div class="project-gallery">
+
+          <div class="gallery-card">
+            <img src="images/ucla-card-game.jpg" alt="Team card game project">
+            <div class="gallery-info">
+              <h3>Team Card Game Prototype</h3>
+              <p>A physical card game designed and playtested with teammates, focusing on strategy, balance, and player engagement.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <iframe height="200" src="https://www.youtube.com/embed/1IvPCd0GMHU" title="3D Project" style="border:none;" allowfullscreen></iframe>
+            <div class="gallery-info">
+              <h3>3D Game Project</h3>
+              <p>Explored 3D game mechanics and environment design, building an interactive experience from concept to playable prototype.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <iframe height="200" src="https://www.youtube.com/embed/DxGQ4NgK_yM" title="2D Project" style="border:none;" allowfullscreen></iframe>
+            <div class="gallery-info">
+              <h3>2D Game Project</h3>
+              <p>Designed and developed a 2D game, applying principles of sprite animation, collision detection, and level design.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <h2>Skills Gained</h2>
+        <div class="skills-cloud" style="margin-top: 16px;">
+          <span class="skill-tag">Game Design</span>
+          <span class="skill-tag">3D Development</span>
+          <span class="skill-tag">2D Animation</span>
+          <span class="skill-tag">Prototyping</span>
+          <span class="skill-tag">Team Collaboration</span>
+          <span class="skill-tag">Creative Coding</span>
+          <span class="skill-tag">Interactive Media</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
