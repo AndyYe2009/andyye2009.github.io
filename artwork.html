@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andy's Artwork — award-winning paintings and comic art">
+  <title>Andy - Artwork</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-hero-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto 32px;
+      display: block;
+    }
+    .project-detail h2 {
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-border);
+    }
+    .project-detail h3 {
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    .project-detail p, .project-detail li {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .project-detail ul {
+      margin: 12px 0 12px 24px;
+    }
+    .artwork-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin: 24px 0;
+    }
+    .artwork-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .artwork-card img {
+      width: 100%;
+      display: block;
+    }
+    .artwork-card .artwork-info {
+      padding: 16px 20px;
+    }
+    .artwork-card .artwork-info h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .artwork-card .artwork-info p {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: var(--color-accent); }
+    .award-list {
+      list-style: none;
+      padding: 0;
+      max-width: 600px;
+    }
+    .award-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .award-list li:last-child { border-bottom: none; }
+    .award-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .award-content .award-title {
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .award-content .award-date {
+      font-size: 0.8rem;
+      color: var(--color-accent);
+      margin-bottom: 2px;
+    }
+    .award-content .award-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container">
+
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <div class="page-header">
+        <h1>Artwork & Creative Portfolio</h1>
+        <p>Years of dedicated practice in painting and comic art, recognized through multiple national awards</p>
+      </div>
+
+      <img src="images/peoples-art-youth.jpg" alt="Outstanding Work — People's Art Youth 2023" class="project-hero-img">
+
+      <div class="project-detail">
+
+        <h2>Overview</h2>
+        <p>
+          Beyond technology and game development, I have spent years cultivating my skills in
+          <strong>painting and comic art</strong>. What started as a childhood hobby has grown into
+          a serious artistic pursuit — earning the <strong>Comic Level 8 certification</strong> and
+          multiple <strong>gold awards</strong> at national competitions. Art is where I express
+          creativity, balance rational thinking with aesthetic sensibility, and develop my unique
+          visual voice.
+        </p>
+
+        <h2>Awards & Honors</h2>
+        <ul class="award-list">
+
+          <li>
+            <div class="award-icon">🎖️</div>
+            <div class="award-content">
+              <div class="award-date">Jul 2026</div>
+              <div class="award-title">Comic Level 8 Certification</div>
+              <div class="award-desc">Achieved the highest-level comic art certification, demonstrating years of dedicated artistic practice and mastery of the medium.</div>
+            </div>
+          </li>
+
+          <li>
+            <div class="award-icon">🏆</div>
+            <div class="award-content">
+              <div class="award-date">Jun 2024</div>
+              <div class="award-title">Gold Award — International Children's Art Competition</div>
+              <div class="award-desc">Won gold at an international art competition, showcasing painting and creative expression on a global stage.</div>
+            </div>
+          </li>
+
+          <li>
+            <div class="award-icon">🏆</div>
+            <div class="award-content">
+              <div class="award-date">Feb 2024</div>
+              <div class="award-title">Gold Award — MeiYuan Cup National Art Exhibition</div>
+              <div class="award-desc">Received top honors at one of China's most prestigious national youth painting and calligraphy competitions.</div>
+            </div>
+          </li>
+
+          <li>
+            <div class="award-icon">🌟</div>
+            <div class="award-content">
+              <div class="award-date">Sep 2023</div>
+              <div class="award-title">"Outstanding Work" — People's Art Youth Creation Activity</div>
+              <div class="award-desc">Artwork recognized as outstanding in a national youth creative arts initiative.</div>
+            </div>
+          </li>
+
+          <li>
+            <div class="award-icon">🎨</div>
+            <div class="award-content">
+              <div class="award-date">Dec 2025</div>
+              <div class="award-title">Intangible Cultural Heritage Global Art Invitation Competition</div>
+              <div class="award-desc">Participated in the World ICH Inheritor Conference Global Art Invitation Competition, celebrating cultural heritage through creative expression.</div>
+            </div>
+          </li>
+
+        </ul>
+
+        <h2>Gallery</h2>
+        <div class="artwork-showcase">
+          <div class="artwork-card">
+            <img src="images/peoples-art-youth.jpg" alt="Outstanding Work — People's Art Youth 2023">
+            <div class="artwork-info">
+              <h3>"Outstanding Work" Award</h3>
+              <p>People's Art Youth Creation Activity, Sep 2023</p>
+            </div>
+          </div>
+
+          <div class="artwork-card">
+            <img src="images/comic-level8.jpg" alt="Comic Level 8 artwork by Andy">
+            <div class="artwork-info">
+              <h3>Comic Level 8 Certified Work</h3>
+              <p>Comic Level 8 Certification, Jul 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Techniques & Mediums</h2>
+        <div class="skills-cloud" style="margin-top: 16px;">
+          <span class="skill-tag">Painting</span>
+          <span class="skill-tag">Comic Art</span>
+          <span class="skill-tag">Digital Illustration</span>
+          <span class="skill-tag">Watercolor</span>
+          <span class="skill-tag">Sketching</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
