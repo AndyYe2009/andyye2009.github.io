@@ -145,7 +145,18 @@
           <div class="project-card-img"><img src="images/formula-0.5-cover.png" alt="Formula 0.5 AI Racing" style="width:100%;height:100%;object-fit:cover;"></div>
           <div class="project-card-body">
             <h3>Formula 0.5 — AI Racing Simulator</h3>
-            <p>A Unity-based self-driving car system where 20 AI cars evolve the fastest racing line through genetic algorithms and a hand-written neural network — featuring raycast perception, reward engineering, and procedural track generation.</p>
+            <p>
+              A Unity 2D AI racing simulator where <strong>20 self-driving cars</strong> evolve the fastest racing
+              line on a procedurally generated track. Each car is driven by a <strong>hand-written neural network</strong>
+              (20→16→2, built from scratch — no ML-Agents), and trained through a <strong>genetic algorithm</strong> that
+              clones the fastest car's brain and mutates it each generation.
+            </p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">
+              <strong>Highlights:</strong> 8 raycast sensors (150° field of view), reward engineering with curb slowdown
+              that teaches the optimal racing line, procedural track generation (guaranteed closed loop), wrong-way
+              detection with checkpoint resets, anti-regression best-ever brain, and atomic JSON save/load with
+              NaN/Infinity validation.
+            </p>
             <div class="project-card-tags">
               <span class="tag">Unity</span>
               <span class="tag">C#</span>
