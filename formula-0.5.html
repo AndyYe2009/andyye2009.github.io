@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formula 0.5 — AI racing simulator with genetic algorithms and a hand-written neural network">
+  <title>Andy - Formula 0.5</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-hero-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto 32px;
+      display: block;
+    }
+    .project-detail h2 {
+      margin-top: 48px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--color-border);
+    }
+    .project-detail h3 {
+      margin-top: 28px;
+      margin-bottom: 10px;
+    }
+    .project-detail p, .project-detail li {
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .project-detail ul {
+      margin: 12px 0 12px 24px;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .stat-card .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    .stat-card .stat-label {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: var(--color-accent); }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container">
+
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <div class="page-header">
+        <h1>Formula 0.5 — AI Racing Simulator</h1>
+        <p>A Unity-based self-driving car system where genetic algorithms and a hand-written neural network evolve the fastest racing line</p>
+      </div>
+
+      <img src="images/formula-0.5-cover.png" alt="Formula 0.5 AI Racing Simulator" class="project-hero-img">
+
+      <div class="project-detail">
+
+        <!-- Stats -->
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-value">20</div>
+            <div class="stat-label">AI Cars</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">20→16→2</div>
+            <div class="stat-label">NN Architecture</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">8</div>
+            <div class="stat-label">Ray Sensors (150°)</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">3×</div>
+            <div class="stat-label">Training Speed</div>
+          </div>
+        </div>
+
+        <h2>Overview</h2>
+        <p>
+          Formula 0.5 is a Unity 2D AI racing simulator where <strong>20 self-driving cars</strong> compete on a
+          procedurally generated track. Each car is driven by a <strong>hand-written neural network</strong> (built
+          from scratch — no ML-Agents or external AI frameworks), and the population evolves through a
+          <strong>genetic algorithm</strong>: every generation, the fastest car's brain is cloned to all 20 cars with
+          small mutations. Over hundreds of generations, the cars learn to find the optimal racing line and complete
+          laps at top speed.
+        </p>
+
+        <h2>Neural Network Architecture</h2>
+        <p>
+          Each car is controlled by a <strong>20 → 16 → 2</strong> fully-connected feedforward neural network with
+          Tanh activation. The two outputs control <strong>throttle</strong> and <strong>steering</strong>. The
+          network is implemented entirely from scratch in C#, including feedforward, mutation, cloning, and JSON
+          serialization.
+        </p>
+
+        <h2>Perception System</h2>
+        <p>
+          The 20 input dimensions describe the car's view of the world:
+        </p>
+        <ul>
+          <li><strong>8 raycast sensors</strong> spanning a 150° field of view with 6-unit range (distance to the nearest wall or obstacle)</li>
+          <li><strong>Speed</strong> (normalized) and <strong>angular velocity</strong></li>
+          <li><strong>Velocity alignment</strong> — how closely the car's movement matches its facing</li>
+          <li><strong>Current throttle</strong></li>
+          <li><strong>Distance from track center</strong> (normalized to half track width)</li>
+          <li><strong>Circuit progress</strong> — how far around the track the car has traveled</li>
+          <li><strong>Track direction alignment</strong> — whether the car faces forward along the track</li>
+        </ul>
+
+        <h2>Genetic Evolution</h2>
+        <ul>
+          <li><strong>Selection:</strong> The car with the highest fitness score per generation becomes the parent</li>
+          <li><strong>Elite cloning:</strong> The best brain is cloned to all 20 cars, then each copy is mutated</li>
+          <li><strong>Mutation:</strong> rate = 0.15, strength = 0.3</li>
+          <li><strong>Anti-regression:</strong> The best-ever brain is preserved; if a new generation performs worse, it reverts</li>
+          <li><strong>Fast training:</strong> 3× time scale, 30 FPS cap, 180-second races</li>
+        </ul>
+
+        <h2>Procedural Track Generation</h2>
+        <p>
+          The track is generated procedurally from an <strong>ellipse combined with dual-frequency wave
+          perturbations</strong>, which mathematically guarantees a closed loop with no self-intersection. The system
+          automatically builds the road mesh, glowing curb strips, 8 checkpoints, a start line, and collision walls.
+          This means every training run can use a unique, valid circuit.
+        </p>
+
+        <h2>Reward Engineering</h2>
+        <p>
+          The fitness function is the heart of the system — it teaches the AI the correct racing behavior:
+        </p>
+        <ul>
+          <li><strong>Forward bonus</strong> for driving along the track direction</li>
+          <li><strong>Wrong-way penalty</strong> for driving backward</li>
+          <li><strong>Curb slowdown</strong> — driving on the track edges cuts speed, teaching the AI the optimal racing line</li>
+          <li><strong>Progress-scaled rewards</strong> — speed and distance rewards grow as the car advances around the circuit</li>
+          <li><strong>Lap completion:</strong> +500</li>
+          <li><strong>Crash penalty:</strong> -100 (plus off-track stuck detection after 2 seconds)</li>
+          <li><strong>Idle penalty</strong> for staying still</li>
+        </ul>
+
+        <h2>Checkpoint &amp; Lap System</h2>
+        <ul>
+          <li>8 checkpoints are placed around the track</li>
+          <li>Each car must pass them in order; <strong>wrong-way detection</strong> resets progress and applies a heavy penalty</li>
+          <li>Completing a full lap records the lap time and awards a large fitness bonus</li>
+        </ul>
+
+        <h2>Save &amp; Safety</h2>
+        <ul>
+          <li><strong>Atomic JSON save/load</strong> (write to a temp file, then rename)</li>
+          <li><strong>NaN/Infinity validation</strong> on every saved brain — corrupt saves are quarantined</li>
+          <li><strong>Best-ever brain</strong> preserved across sessions, with a max of 3 rolling save files</li>
+        </ul>
+
+        <h2>Tech Stack</h2>
+        <div class="skills-cloud">
+          <span class="skill-tag">Unity 2022.3</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Neural Network</span>
+          <span class="skill-tag">Genetic Algorithm</span>
+          <span class="skill-tag">2D Physics</span>
+          <span class="skill-tag">Raycasting</span>
+          <span class="skill-tag">JSON Serialization</span>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>
