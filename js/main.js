@@ -15,7 +15,7 @@ function injectNav() {
 
   const currentPath = window.location.pathname;
   const getActive = (page) => {
-    if (currentPath.endsWith(page) || (page === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('/personal-homepage/')))) {
+    if (currentPath.endsWith(page) || (page === 'index.html' && currentPath.endsWith('/'))) {
       return 'active';
     }
     return '';

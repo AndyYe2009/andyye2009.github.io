@@ -49,12 +49,17 @@ git push -u origin main
 ## 文件结构
 
 ```
-├── index.html        # 首页
-├── projects.html     # 项目展示
-├── about.html        # 关于我
-├── contact.html      # 联系方式
+├── index.html              # 首页
+├── projects.html           # 项目展示
+├── about.html              # 关于我
+├── contact.html            # 联系方式
+├── artwork.html            # 画作详情
+├── archer-vs-assassin.html # AI 对战详情
+├── shogun-ai.html          # 游戏自动玩详情
+├── ucla-game-lab.html      # UCLA 夏校详情
 ├── css/
-│   └── style.css     # 全局样式
-└── js/
-    └── main.js       # 全局脚本（导航栏、页脚注入）
+│   └── style.css           # 全局样式
+├── js/
+│   └── main.js             # 全局脚本（导航栏、页脚注入）
+└── images/                 # 图片素材
 ```
