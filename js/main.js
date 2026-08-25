@@ -52,6 +52,7 @@ function injectFooter() {
       <div class="container">
         <div class="footer-social">
           <a href="https://github.com/AndyYe2009" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:13818594117@139.com">Email</a>
         </div>
         <p class="footer-copy">&copy; ${new Date().getFullYear()} Andy. All rights reserved.</p>
       </div>

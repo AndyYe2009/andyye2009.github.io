@@ -715,6 +715,7 @@ details.accordion:hover {
    ======================================== */
 .timeline-h {
   display: flex;
+  align-items: flex-start;
   gap: 20px;
   overflow-x: auto;
   padding: 16px 4px 28px;
@@ -745,7 +746,7 @@ details.accordion:hover {
 
 .timeline-h-item {
   flex: 0 0 auto;
-  width: 250px;
+  width: 300px;
   scroll-snap-align: start;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -774,6 +775,19 @@ details.accordion:hover {
   border-radius: 50%;
   background: var(--color-accent);
   box-shadow: 0 0 0 3px var(--color-bg);
+}
+
+.timeline-h-item img.timeline-media,
+.timeline-h-item iframe.timeline-media {
+  width: 100%;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.timeline-h-item iframe.timeline-media {
+  aspect-ratio: 16 / 9;
+  border: none;
+  background: #000;
 }
 
 /* 边缘渐隐提示可继续滑动 */
