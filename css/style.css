@@ -790,7 +790,7 @@ details.accordion:hover {
   background: #000;
 }
 
-/* 边缘渐隐提示可继续滑动 */
+/* Trailing spacer so the last card can rest against the left edge */
 .timeline-h::after {
   content: '';
   flex: 0 0 1px;
