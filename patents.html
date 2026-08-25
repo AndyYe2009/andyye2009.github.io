@@ -7,53 +7,66 @@
   <title>Andy - Patents</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
-    .patent-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 28px;
-      max-width: 920px;
-      margin: 0 auto;
-    }
-    .patent-card {
+    .patent-block {
+      max-width: 760px;
+      margin: 0 auto 64px;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: var(--transition);
+      padding: 32px;
     }
-    .patent-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+    .patent-block h2 {
+      margin-bottom: 8px;
     }
-    .patent-card img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      display: block;
+    .status-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: #eff6ff;
+      color: var(--color-accent);
+      margin-bottom: 20px;
     }
-    .patent-body {
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+    .status-badge.granted {
+      background: #ecfdf5;
+      color: #059669;
     }
-    .patent-icon { font-size: 2rem; }
-    .patent-title { font-size: 1.25rem; font-weight: 700; }
-    .patent-num {
+    .patent-fields {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 10px 20px;
+      margin-bottom: 24px;
+    }
+    .patent-fields .pf-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--color-text-muted);
+      padding-top: 2px;
+    }
+    .patent-fields .pf-value {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .patent-fields .pf-value.mono {
       font-family: var(--font-mono);
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: var(--color-accent);
     }
-    .patent-status {
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
+    .patent-block h3 {
+      font-size: 1rem;
+      margin: 20px 0 6px;
     }
-    .patent-desc {
-      font-size: 0.95rem;
+    .patent-block p {
       color: var(--color-text-muted);
-      line-height: 1.7;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+    .patent-block p + p {
+      margin-top: 8px;
     }
   </style>
 </head>
@@ -66,49 +79,84 @@
 
       <div class="page-header">
         <h1>Invention Patents</h1>
-        <p>Two things I sketched out of pure curiosity, then made real</p>
+        <p>Two ideas I sketched out of curiosity, then made official</p>
       </div>
 
-      <p style="text-align:center;max-width:640px;margin:0 auto 48px;color:var(--color-text-muted);line-height:1.8;">
-        When I'm not coding or drawing, I tinker with physical things. Both patents started as
-        rough sketches in a notebook — a scooter that rides smoother, and a boat that cleans
-        rivers on its own.
-      </p>
+      <!-- Scooter -->
+      <section class="patent-block">
+        <h2>🛴 A Scooter</h2>
+        <span class="status-badge granted">Granted · 发明专利证书</span>
 
-      <div class="patent-grid">
+        <div class="patent-fields">
+          <div class="pf-label">Patent No.</div>
+          <div class="pf-value mono">ZL 2022 1 0710034.4</div>
 
-        <!-- Scooter -->
-        <div class="patent-card">
-          <img src="images/patent-scooter.png" alt="Scooter invention patent design">
-          <div class="patent-body">
-            <div class="patent-icon">🛴</div>
-            <div class="patent-title">A Scooter</div>
-            <div class="patent-num">App. No. 202210710034.4</div>
-            <div class="patent-status">Substantive Examination · Mar 2024</div>
-            <p class="patent-desc">
-              Reworked the scooter's structure and components for a more stable, comfortable ride.
-            </p>
-          </div>
+          <div class="pf-label">Application No.</div>
+          <div class="pf-value mono">202210710034.4</div>
+
+          <div class="pf-label">Inventors &amp; Patentees</div>
+          <div class="pf-value">叶吴睿轩 (Andy Ye) · 叶峥 (Ye Zheng)</div>
+
+          <div class="pf-label">Status</div>
+          <div class="pf-value">Granted — entered substantive examination March 2024</div>
         </div>
 
-        <!-- Boat -->
-        <div class="patent-card">
-          <div class="patent-body">
-            <div class="patent-icon">🚤</div>
-            <div class="patent-title">Water Surface Floating Object Collection Boat</div>
-            <div class="patent-num">App. No. 202610098475.1</div>
-            <div class="patent-status">Filed · Jan 2026</div>
-            <p class="patent-desc">
-              A boat that scoops floating debris off the water on its own — cleaner rivers, less manual labor.
-            </p>
-          </div>
+        <h3>What it is</h3>
+        <p>
+          An invention patent for a redesigned scooter. It reworks the scooter's structure and key
+          functional components — improving balance, ride comfort, and overall performance.
+        </p>
+
+        <h3>Why it matters</h3>
+        <p>
+          The goal is a smoother, more stable, and safer ride. Instead of settling for an off-the-shelf
+          design, I wanted to understand how a scooter actually works and rebuild the parts that could
+          be better.
+        </p>
+      </section>
+
+      <!-- Boat -->
+      <section class="patent-block">
+        <h2>🚤 A Water Surface Floating Object Collection Boat</h2>
+        <span class="status-badge">Under examination · 受理</span>
+
+        <div class="patent-fields">
+          <div class="pf-label">Application No.</div>
+          <div class="pf-value mono">202610098475.1</div>
+
+          <div class="pf-label">Filed</div>
+          <div class="pf-value">January 26, 2026</div>
+
+          <div class="pf-label">Inventors &amp; Applicants</div>
+          <div class="pf-value">叶吴睿轩 (Andy Ye) · 叶峥 (Ye Zheng)</div>
+
+          <div class="pf-label">Claims</div>
+          <div class="pf-value">10 claims</div>
+
+          <div class="pf-label">Documents</div>
+          <div class="pf-value">4-page specification · 4-page drawings · 1-page abstract</div>
+
+          <div class="pf-label">Examination</div>
+          <div class="pf-value">Substantive examination requested</div>
+
+          <div class="pf-label">Patent Agency</div>
+          <div class="pf-value">郑州翊博专利代理事务所 · Agent: 涂连梅</div>
         </div>
 
-      </div>
+        <h3>What it is</h3>
+        <p>
+          An invention patent for a boat that automatically collects floating objects from the water
+          surface. It combines an innovative hull structure, a collection mechanism, and a power system
+          to scoop up debris as it moves.
+        </p>
 
-      <p style="text-align:center;margin-top:56px;color:var(--color-text-muted);">
-        Why invent? Because the best way to understand how something works is to try and build it better.
-      </p>
+        <h3>Why it matters</h3>
+        <p>
+          Cleaning floating trash from rivers and lakes is slow, manual work. This boat is designed to
+          do it on its own — improving cleaning efficiency and cutting down the labor needed to keep
+          waterways clean.
+        </p>
+      </section>
 
     </div>
   </main>
