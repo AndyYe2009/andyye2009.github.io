@@ -15,23 +15,6 @@
       margin: 0 auto 32px;
       display: block;
     }
-    .project-detail h2 {
-      margin-top: 48px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--color-border);
-    }
-    .project-detail h3 {
-      margin-top: 28px;
-      margin-bottom: 10px;
-    }
-    .project-detail p, .project-detail li {
-      color: var(--color-text-muted);
-      line-height: 1.8;
-    }
-    .project-detail ul {
-      margin: 12px 0 12px 24px;
-    }
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -64,6 +47,8 @@
       font-size: 0.9rem;
     }
     .back-link:hover { color: var(--color-accent); }
+    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
+    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
   </style>
 </head>
 <body>
@@ -76,150 +61,135 @@
       <a href="projects.html" class="back-link">← Back to Projects</a>
 
       <div class="page-header">
-        <h1>Archer vs Assassin — AI Battle Training System</h1>
-        <p>A Unity-based symmetric combat training system powered by genetic algorithms and neural networks</p>
+        <h1>Archer vs Assassin — AI Battle</h1>
+        <p>100 AI units teach themselves to fight — through genetic algorithms and neural networks</p>
       </div>
 
       <img src="images/archer-vs-assassin-cover.png" alt="Archer vs Assassin Battlefield" class="project-hero-img">
 
-      <div class="project-detail">
-
-        <!-- Stats -->
-        <div class="stat-grid">
-          <div class="stat-card">
-            <div class="stat-value">100</div>
-            <div class="stat-label">AI Units (50v50)</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">48</div>
-            <div class="stat-label">NN Input Dimensions</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">120×80</div>
-            <div class="stat-label">Battlefield Size</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">0.15s</div>
-            <div class="stat-label">Decision Interval</div>
-          </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">100</div>
+          <div class="stat-label">AI Units (50v50)</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-value">48→48→7</div>
+          <div class="stat-label">Neural Network</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">120×80</div>
+          <div class="stat-label">Battlefield</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0.15s</div>
+          <div class="stat-label">Decision Interval</div>
+        </div>
+      </div>
 
-        <h2>Overview</h2>
-        <p>
-          Archer vs Assassin is a Unity 2D AI combat simulation where <strong>100 AI units</strong> (50 archers + 50 assassins)
-          battle on a 120×80 battlefield. Each generation, the best-performing archer and assassin are selected —
-          their neural network brains are cloned to all 50 units of the same class, with small mutations applied to
-          introduce variation. Over hundreds of generations, the AI evolves sophisticated combat tactics.
-        </p>
+      <p class="overview">
+        50 archers vs 50 assassins. Each generation picks the best fighter, clones its brain to the whole class,
+        and mutates. Over hundreds of generations, the units evolve real tactics — cover, focus-fire, even baiting.
+      </p>
 
-        <h2>Neural Network Architecture</h2>
-        <p>
-          Each unit is controlled by a <strong>48 → 48 → 7</strong> fully-connected feedforward neural network
-          with Tanh activation. The 7 outputs control movement, aiming, attacking, and two abilities.
-        </p>
+      <div class="accordion-wrap">
 
-        <h3>48 Input Dimensions</h3>
-        <ul>
-          <li><strong>Self state (6):</strong> HP/class signal, attack cooldown, skill cooldown, nearest wall distance, distance from center, facing opponent</li>
-          <li><strong>Opponent state (9):</strong> relative position, distance, HP, facing me?, cooldowns, skill active, distance from wall</li>
-          <li><strong>Projectile awareness (15):</strong> 3 projectiles × 5 dimensions (position, velocity, friend/foe)</li>
-          <li><strong>Team density (6):</strong> allied/enemy counts at Near/Mid/Far range brackets</li>
-          <li><strong>Nearest ally (3):</strong> relative position, facing direction</li>
-          <li><strong>Local advantage ratio (1)</strong></li>
-          <li><strong>Ammo / distance from home (1):</strong> arrows remaining (archer) or distance from spawn (assassin)</li>
-          <li><strong>Nearest cover (3):</strong> distance, direction</li>
-          <li><strong>Opponent behind cover (1):</strong> Raycast detection</li>
-          <li><strong>Ammo urgency + supply distance (2):</strong> archer-specific</li>
-          <li><strong>Ability 2 cooldown (1)</strong></li>
-        </ul>
+        <details class="accordion">
+          <summary>🧠 Neural Network — 48 inputs</summary>
+          <div class="accordion-body">
+            <p>A <strong>48 → 48 → 7</strong> feedforward network with Tanh activation. The 7 outputs drive movement, aiming, attacking, and two abilities.</p>
+            <ul>
+              <li><strong>Self state (6):</strong> HP/class signal, cooldowns, nearest wall, distance from center, facing</li>
+              <li><strong>Opponent state (9):</strong> relative position, distance, HP, facing, cooldowns, skill active</li>
+              <li><strong>Projectile awareness (15):</strong> 3 projectiles × 5 dims (position, velocity, friend/foe)</li>
+              <li><strong>Team density (6):</strong> allied/enemy counts at Near/Mid/Far ranges</li>
+              <li><strong>Nearest ally (3), local advantage (1), ammo/home distance (1)</strong></li>
+              <li><strong>Nearest cover (3), opponent-behind-cover raycast (1), ammo urgency + supply (2), ability-2 cooldown (1)</strong></li>
+            </ul>
+          </div>
+        </details>
 
-        <h2>Class Design</h2>
+        <details class="accordion">
+          <summary>🏹🗡️ Class Design</summary>
+          <div class="accordion-body">
+            <p><strong>Archer</strong> — HP 1, ranged arrow (0.5s cd), Q dodge (3s), W charged shot (7s, 2 arrows), 10 arrows (+3/kill, 4 supply points).</p>
+            <p><strong>Assassin</strong> — HP 2, melee dagger (0.8s, hits all in range), Q parry arrows in a 45° arc (1.5s), W dash slash (3.5s).</p>
+          </div>
+        </details>
 
-        <h3>🏹 Archer</h3>
-        <ul>
-          <li><strong>HP:</strong> 1 | <strong>Speed:</strong> 6.0 | <strong>Vision:</strong> 25 units</li>
-          <li><strong>Attack:</strong> Ranged arrow, 1 damage, 0.5s cooldown</li>
-          <li><strong>Q - Dodge:</strong> Dash 4.5 units away from danger, invulnerable during animation (3s cooldown)</li>
-          <li><strong>W - Charged Shot:</strong> 2 damage, cannot be parried, 7s cooldown, costs 2 arrows</li>
-          <li><strong>Ammo system:</strong> Start with 10 arrows, -1 per shot, +3 per kill, 4 supply points on map</li>
-          <li><strong>Shoot discipline:</strong> no shooting beyond 20 units, selective at 10-16, free fire under 10</li>
-        </ul>
+        <details class="accordion">
+          <summary>🧬 Genetic Evolution</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Per-generation best archer and assassin selected, brain cloned to all 50 units, then mutated</li>
+              <li>Anti-regression: best-ever brain preserved and restored if a generation regresses</li>
+              <li>Mutation rate 0.15, strength 0.3 · auto-save every 5 generations (atomic JSON, max 3 files)</li>
+            </ul>
+          </div>
+        </details>
 
-        <h3>🗡️ Assassin</h3>
-        <ul>
-          <li><strong>HP:</strong> 2 | <strong>Speed:</strong> 7.5 | <strong>Vision:</strong> 12 units</li>
-          <li><strong>Attack:</strong> Melee dagger, 1 damage, 0.8s cooldown, hits all enemies in range</li>
-          <li><strong>Q - Parry:</strong> Deflect arrows in a 45° arc (1.5s cooldown), rewards +3 score per deflection</li>
-          <li><strong>W - Dash Slash:</strong> Charge 3 units forward at high speed, damaging enemies on contact (3.5s cooldown)</li>
-        </ul>
+        <details class="accordion">
+          <summary>👁️ Team Vision & Fog of War</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Archers see 25 units, assassins 12; cover blocks line-of-sight via raycast</li>
+              <li>Teammates share vision — if any ally sees an enemy, the whole team does</li>
+              <li>Per-team exploration grid (12×8 cells) decays after 5s; assassins march to unexplored cells</li>
+            </ul>
+          </div>
+        </details>
 
-        <h2>Key Systems</h2>
+        <details class="accordion">
+          <summary>🤝 Team Coordination</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Grouping bonus near 2+ allies; isolation penalty when alone and surrounded</li>
+              <li>Archer–assassin escort bonuses; focus fire (3+ archers on one target); bait mechanic</li>
+            </ul>
+          </div>
+        </details>
 
-        <h3>Genetic Evolution</h3>
-        <ul>
-          <li><strong>Selection:</strong> Per-generation best archer and best assassin (regardless of team)</li>
-          <li><strong>Elite cloning:</strong> Best brain → all 50 units of same class → mutate each copy</li>
-          <li><strong>Anti-regression:</strong> Historical best brain preserved; if generation performance drops, revert to best-ever</li>
-          <li><strong>Mutation:</strong> rate=0.15, strength=0.3</li>
-          <li><strong>Auto-save:</strong> Every 5 generations, JSON atomic write, max 3 files retained</li>
-        </ul>
+        <details class="accordion">
+          <summary>🛡️ Cover System</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>20 random cover objects (blue blocks), dual colliders (solid + arrow-blocking trigger)</li>
+              <li>Cover-to-cover advance, ambush-from-cover bonus, penalty for hugging obstacles</li>
+            </ul>
+          </div>
+        </details>
 
-        <h3>Team Vision &amp; Fog of War</h3>
-        <ul>
-          <li>Archers see 25 units, assassins see 12 units</li>
-          <li>Cover blocks line-of-sight via Raycast</li>
-          <li>Teammates <strong>share vision</strong> — any ally sees enemy → whole team sees enemy</li>
-          <li>Per-team <strong>exploration grid</strong>: 12×8 = 96 cells, decays after 5 seconds</li>
-          <li>Assassins without enemies march toward nearest unexplored cell</li>
-        </ul>
+        <details class="accordion">
+          <summary>⚖️ Scoring & Rewards</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Hit +10, kill +25, get hit −3, death −5, escalating time penalty, 120s force-death timeout</li>
+            </ul>
+          </div>
+        </details>
 
-        <h3>Team Coordination</h3>
-        <ul>
-          <li><strong>Grouping bonus:</strong> +0.01/step when near 2+ allies</li>
-          <li><strong>Isolation penalty:</strong> -0.03/step when alone and surrounded</li>
-          <li><strong>Archer-Assassin escort:</strong> archers +0.03/step when assassin within 8 units; assassins +0.02/step when archer within 10 units</li>
-          <li><strong>Focus fire:</strong> 3+ archers hitting same target → commander bonus +5</li>
-          <li><strong>Bait mechanic:</strong> assassin draws enemy fire while archer kills → assassin +8 bonus</li>
-        </ul>
+        <details class="accordion">
+          <summary>🛡️ Safety & Performance</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Training mode skips effects; static sprite caching; 1000 projectile cap + 3s cleanup</li>
+              <li>Null-reference guards, 2GB memory watchdog, atomic save with corrupt-file quarantine</li>
+            </ul>
+          </div>
+        </details>
 
-        <h3>Cover System</h3>
-        <ul>
-          <li>20 randomly placed cover objects (2-4 unit size, blue blocks)</li>
-          <li>Dual colliders: solid (blocks characters) + trigger (blocks arrows)</li>
-          <li>Assassin cover tactics: shelter reward, cover-to-cover advance bonus, ambush from cover +5</li>
-          <li>Cover collision penalty: -0.05/step for hugging obstacles</li>
-        </ul>
+      </div>
 
-        <h3>Scoring &amp; Rewards</h3>
-        <ul>
-          <li>Hit enemy: <strong>+10</strong></li>
-          <li>Kill enemy: <strong>+25</strong> (attacker)</li>
-          <li>Getting hit: <strong>-3</strong></li>
-          <li>Death: <strong>-5</strong></li>
-          <li>Time penalty: escalating (-0.005 → -0.01/step after 90s)</li>
-          <li>120s force-death timeout to prevent endless matches</li>
-        </ul>
-
-        <h2>Safety &amp; Performance</h2>
-        <ul>
-          <li><strong>GPU:</strong> Training mode skips flash/trail/slash effects, only renders characters and cover</li>
-          <li><strong>Memory:</strong> Static sprite caching, observation array reuse, 1000 projectile cap + 3s cleanup</li>
-          <li><strong>Crash protection:</strong> Full null-reference guards, 120s timeout, 2GB memory watchdog, 9999 gen cap</li>
-          <li><strong>Save system:</strong> Atomic write (tmp → rename), corrupt file quarantine, backward compatible</li>
-        </ul>
-
-        <h2>Tech Stack</h2>
-        <div class="skills-cloud">
+      <div style="text-align:center;">
+        <div class="skills-cloud" style="justify-content:center;">
           <span class="skill-tag">Unity 2022.3</span>
           <span class="skill-tag">C#</span>
           <span class="skill-tag">Genetic Algorithm</span>
           <span class="skill-tag">Neural Network</span>
-          <span class="skill-tag">ML-Agents</span>
           <span class="skill-tag">2D Physics</span>
-          <span class="skill-tag">JSON Serialization</span>
         </div>
-
+        <p style="margin-top:16px;"><a href="https://github.com/AndyYe2009/archer-vs-assassin" target="_blank" rel="noopener">View the code →</a></p>
       </div>
+
     </div>
   </main>
 

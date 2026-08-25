@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andy's invention patents — a scooter and a water surface collection boat">
+  <title>Andy - Patents</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .patent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+    .patent-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .patent-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .patent-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+    .patent-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .patent-icon { font-size: 2rem; }
+    .patent-title { font-size: 1.25rem; font-weight: 700; }
+    .patent-num {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--color-accent);
+    }
+    .patent-status {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+    }
+    .patent-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Invention Patents</h1>
+        <p>Two things I sketched out of pure curiosity, then made real</p>
+      </div>
+
+      <p style="text-align:center;max-width:640px;margin:0 auto 48px;color:var(--color-text-muted);line-height:1.8;">
+        When I'm not coding or drawing, I tinker with physical things. Both patents started as
+        rough sketches in a notebook — a scooter that rides smoother, and a boat that cleans
+        rivers on its own.
+      </p>
+
+      <div class="patent-grid">
+
+        <!-- Scooter -->
+        <div class="patent-card">
+          <img src="images/patent-scooter.png" alt="Scooter invention patent design">
+          <div class="patent-body">
+            <div class="patent-icon">🛴</div>
+            <div class="patent-title">A Scooter</div>
+            <div class="patent-num">App. No. 202210710034.4</div>
+            <div class="patent-status">Substantive Examination · Mar 2024</div>
+            <p class="patent-desc">
+              Reworked the scooter's structure and components for a more stable, comfortable ride.
+            </p>
+          </div>
+        </div>
+
+        <!-- Boat -->
+        <div class="patent-card">
+          <img src="images/patent-boat.png" alt="Water surface floating object collection boat patent design">
+          <div class="patent-body">
+            <div class="patent-icon">🚤</div>
+            <div class="patent-title">Water Surface Floating Object Collection Boat</div>
+            <div class="patent-num">App. No. 202610098475.1</div>
+            <div class="patent-status">Filed · Jan 2026</div>
+            <p class="patent-desc">
+              A boat that scoops floating debris off the water on its own — cleaner rivers, less manual labor.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="text-align:center;margin-top:56px;color:var(--color-text-muted);">
+        Why invent? Because the best way to understand how something works is to try and build it better.
+      </p>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

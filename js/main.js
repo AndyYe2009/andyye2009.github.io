@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   injectNav();
   injectFooter();
   initMobileNav();
+  initTimelineDrag();
 });
 
 /* ---------- Inject Navigation ---------- */
@@ -32,6 +33,8 @@ function injectNav() {
           <li><a href="index.html" class="${getActive('index.html')}">Home</a></li>
           <li><a href="projects.html" class="${getActive('projects.html')}">Projects</a></li>
           <li><a href="about.html" class="${getActive('about.html')}">About</a></li>
+          <li><a href="hobbies.html" class="${getActive('hobbies.html')}">Hobbies</a></li>
+          <li><a href="patents.html" class="${getActive('patents.html')}">Patents</a></li>
           <li><a href="contact.html" class="${getActive('contact.html')}">Contact</a></li>
         </ul>
       </div>
@@ -49,8 +52,6 @@ function injectFooter() {
       <div class="container">
         <div class="footer-social">
           <a href="https://github.com/AndyYe2009" target="_blank" rel="noopener">GitHub</a>
-          <a href="mailto:13818594117@139.com">Email</a>
-          <a href="https://instagram.com/ruixuanyewu" target="_blank" rel="noopener">Instagram</a>
         </div>
         <p class="footer-copy">&copy; ${new Date().getFullYear()} Andy. All rights reserved.</p>
       </div>
@@ -80,5 +81,36 @@ function initMobileNav() {
     if (links) {
       links.classList.remove('open');
     }
+  });
+}
+
+/* ---------- Horizontal Timeline — drag to scroll ---------- */
+function initTimelineDrag() {
+  document.querySelectorAll('.timeline-h').forEach((el) => {
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+
+    el.addEventListener('mousedown', (e) => {
+      isDown = true;
+      el.classList.add('grabbing');
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+    });
+
+    const stop = () => {
+      isDown = false;
+      el.classList.remove('grabbing');
+    };
+
+    el.addEventListener('mouseleave', stop);
+    el.addEventListener('mouseup', stop);
+
+    el.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      el.scrollLeft = scrollLeft - (x - startX);
+    });
   });
 }

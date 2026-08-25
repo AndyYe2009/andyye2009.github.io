@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Andy's hobbies — cars, art, voice acting, and games">
+  <title>Andy - Hobbies</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hobby-section {
+      max-width: 820px;
+      margin: 0 auto 64px;
+    }
+    .hobby-section h2 {
+      margin-bottom: 8px;
+    }
+    .hobby-section .hobby-lead {
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    /* Car photo gallery */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .photo-slot {
+      aspect-ratio: 4 / 3;
+      border: 2px dashed var(--color-border);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      background: var(--color-surface);
+    }
+    .photo-slot .slot-emoji { font-size: 1.8rem; }
+    /* Small hobby chips */
+    .hobby-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .hobby-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .hobby-card .hc-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .hobby-card h3 { font-size: 1rem; margin-bottom: 4px; }
+    .hobby-card p { font-size: 0.85rem; color: var(--color-text-muted); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container">
+
+      <div class="page-header">
+        <h1>Things I Love</h1>
+        <p>Off the clock, this is what I'm usually doing</p>
+      </div>
+
+      <!-- Cars -->
+      <section class="hobby-section">
+        <h2>🚗 Cars</h2>
+        <p class="hobby-lead">
+          I've always had a thing for cars. On a trip to Japan, I ended up photographing them more
+          than the sights — the kei trucks, the taxis, the old sports cars parked in quiet streets.
+          A few favorites below.
+        </p>
+        <div class="photo-grid">
+          <div class="photo-slot"><span class="slot-emoji">📷</span>Photo coming soon</div>
+          <div class="photo-slot"><span class="slot-emoji">📷</span>Photo coming soon</div>
+          <div class="photo-slot"><span class="slot-emoji">📷</span>Photo coming soon</div>
+          <div class="photo-slot"><span class="slot-emoji">📷</span>Photo coming soon</div>
+          <div class="photo-slot"><span class="slot-emoji">📷</span>Photo coming soon</div>
+          <div class="photo-slot"><span class="slot-emoji">📷</span>Photo coming soon</div>
+        </div>
+      </section>
+
+      <!-- Art -->
+      <section class="hobby-section">
+        <h2>🎨 Art &amp; Comics</h2>
+        <p class="hobby-lead">
+          I've painted and drawn for years — comics are my favorite. Comic Level 8 certified, with a
+          few gold awards along the way.
+        </p>
+        <div class="hobby-cards">
+          <div class="hobby-card">
+            <div class="hc-icon">🖼️</div>
+            <h3>Painting</h3>
+            <p>My "Old Shanghai" piece of the Bund took me a month and won an "Outstanding Work" award.</p>
+          </div>
+          <div class="hobby-card">
+            <div class="hc-icon">✏️</div>
+            <h3>Comics</h3>
+            <p>Comic Level 8 — the highest grade. I love building characters and giving them a voice.</p>
+          </div>
+        </div>
+        <p style="margin-top:16px;"><a href="artwork.html">See my artwork →</a></p>
+      </section>
+
+      <!-- Voice acting -->
+      <section class="hobby-section">
+        <h2>🎙️ Voice Acting</h2>
+        <p class="hobby-lead">
+          I'm the Vice President of my school's Voice Acting Club. Giving a character a voice — especially
+          a villain's — is my favorite kind of performance.
+        </p>
+      </section>
+
+      <!-- Games -->
+      <section class="hobby-section">
+        <h2>🕹️ Games</h2>
+        <p class="hobby-lead">
+          I play roguelikes and tactical games — Shogun Showdown is the one that made me want to build an
+          AI that plays it for me.
+        </p>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

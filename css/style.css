@@ -654,3 +654,130 @@ a:hover { color: var(--color-accent-hover); }
     grid-template-columns: 1fr;
   }
 }
+
+/* ========================================
+   可展开内容 (Expandable / Accordion)
+   ======================================== */
+details.accordion {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+details.accordion summary {
+  cursor: pointer;
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  user-select: none;
+  color: var(--color-text);
+}
+
+details.accordion summary::-webkit-details-marker { display: none; }
+
+details.accordion summary::after {
+  content: '+';
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-accent);
+  transition: transform var(--transition);
+}
+
+details.accordion[open] summary::after {
+  content: '−';
+}
+
+details.accordion .accordion-body {
+  padding: 4px 18px 18px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.9rem;
+}
+
+details.accordion .accordion-body p,
+details.accordion .accordion-body li {
+  color: var(--color-text-muted);
+}
+
+details.accordion:hover {
+  border-color: var(--color-accent);
+}
+
+/* ========================================
+   横向时间轴 (Horizontal Timeline)
+   ======================================== */
+.timeline-h {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 16px 4px 28px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-border);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  margin: 0 -24px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.timeline-h:active,
+.timeline-h.grabbing { cursor: grabbing; }
+
+.timeline-h::-webkit-scrollbar { height: 8px; }
+.timeline-h::-webkit-scrollbar-track {
+  background: var(--color-border);
+  border-radius: 100px;
+}
+.timeline-h::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 100px;
+}
+
+.timeline-h-item {
+  flex: 0 0 auto;
+  width: 250px;
+  scroll-snap-align: start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.timeline-h-item:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-h-item::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 22px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-bg);
+}
+
+/* 边缘渐隐提示可继续滑动 */
+.timeline-h::after {
+  content: '';
+  flex: 0 0 1px;
+}

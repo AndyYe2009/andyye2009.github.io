@@ -15,45 +15,13 @@
       margin: 0 auto 32px;
       display: block;
     }
-    .project-detail h2 {
-      margin-top: 48px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--color-border);
-    }
-    .project-detail h3 { margin-top: 28px; margin-bottom: 10px; }
-    .project-detail p, .project-detail li { color: var(--color-text-muted); line-height: 1.8; }
-    .project-detail ul { margin: 12px 0 12px 24px; }
-    .back-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem;
-    }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
-    .project-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 24px;
-      margin: 24px 0;
-    }
-    .gallery-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .gallery-card img, .gallery-card iframe {
-      width: 100%;
-      display: block;
-    }
-    .gallery-card .gallery-info {
-      padding: 14px 18px;
-    }
-    .gallery-card .gallery-info h3 {
-      font-size: 1rem; margin-bottom: 4px;
-    }
-    .gallery-card .gallery-info p {
-      font-size: 0.85rem; color: var(--color-text-muted);
-    }
+    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
+    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
+    .card-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
+    .card-gallery img { width: 100%; border-radius: 6px; box-shadow: var(--shadow-sm); }
+    .vid { width: 100%; max-width: 600px; border-radius: 8px; box-shadow: var(--shadow-md); border: none; aspect-ratio: 16/9; margin: 12px 0; display: block; }
   </style>
 </head>
 <body>
@@ -67,153 +35,61 @@
 
       <div class="page-header">
         <h1>UCLA Game Lab Summer Institute</h1>
-        <p>An intensive game development experience — exploring game design, interactive media, and creative coding</p>
+        <p>Three games in one summer — design, 3D, and 2D</p>
       </div>
 
       <img src="images/ucla-game-lab-cover.png" alt="UCLA Game Lab Summer Institute" class="project-hero-img">
 
-      <div class="project-detail">
+      <p class="overview">
+        July 2025 at UCLA. I built three projects — led a card game as team leader, then made a 3D and a 2D
+        game on my own. All three share a theme I clearly enjoy: playing the bad guy.
+      </p>
 
-        <h2>Overview</h2>
-        <p>
-          In July 2025, I attended the <strong>UCLA Game Lab Summer Institute</strong>, an intensive
-          game development experience at one of the world's leading game design programs. I explored
-          <strong>game design principles</strong>, <strong>interactive media</strong>, and
-          <strong>creative coding</strong> — working hands-on to create multiple game prototypes.
-        </p>
+      <div class="accordion-wrap">
 
-        <h2>Projects</h2>
+        <details class="accordion" open>
+          <summary>🃏 Lethal Spire — card game (Team Leader)</summary>
+          <div class="accordion-body">
+            <p>I led a 4-person team to design a Gothic dark-fairytale card game where <strong>you play the villain boss defending your lair</strong>. I wrote the rules, balanced the mechanics, and directed the art.</p>
+            <div class="card-gallery">
+              <img src="images/card-4.png" alt="Lethal Spire card artwork">
+              <img src="images/card-5.png" alt="Lethal Spire card artwork">
+              <img src="images/card-8.png" alt="Lethal Spire card artwork">
+              <img src="images/card-9.png" alt="Lethal Spire card artwork">
+              <img src="images/card-6.png" alt="Lethal Spire card artwork">
+              <img src="images/card-7.png" alt="Lethal Spire card artwork">
+            </div>
+          </div>
+        </details>
 
-        <h3>🃏 Lethal Spire: 100 Ways to Die</h3>
-        <p style="font-size:0.9rem;color:var(--color-accent);margin-bottom:12px;"><strong>Role:</strong> Team Leader &amp; Game Designer (UCLA Summer School Project)</p>
-        <img src="images/ucla-card-game.jpg" alt="Lethal Spire card game" style="width:100%;max-width:600px;border-radius:8px;margin:12px 0;box-shadow:var(--shadow-md);">
+        <details class="accordion">
+          <summary>🧟 3D — Zombie Survival Prototype</summary>
+          <div class="accordion-body">
+            <iframe class="vid" src="https://www.youtube.com/embed/1IvPCd0GMHU" title="3D Project" allowfullscreen></iframe>
+            <p>A solo 3D survival prototype: collect four experience orbs while zombies roam. It was an exercise in <strong>guided level design</strong> — steering the player with visual hints instead of text. I made a custom sky shader, sculpted terrain, and built a working portal system.</p>
+          </div>
+        </details>
 
-        <h4>Project Overview</h4>
-        <p>
-          A tabletop card game developed during the UCLA summer school program. I <strong>led a 4-person team</strong>
-          to design and produce the game from concept to a finished physical product.
-        </p>
+        <details class="accordion">
+          <summary>🥔 Protato — 2D Survival</summary>
+          <div class="accordion-body">
+            <iframe class="vid" src="https://www.youtube.com/embed/DxGQ4NgK_yM" title="2D Project" allowfullscreen></iframe>
+            <p>You're the <strong>last zombie on Earth</strong>, hunted by humans. The heart of it is a fake portal that leads to an instant bad ending ("A wall is lying.") and a real exit hidden behind a breakable wall — teaching the player through failure.</p>
+          </div>
+        </details>
 
-        <h4>My Role &amp; Responsibilities</h4>
-        <p>As the <strong>Team Leader and Game Designer</strong>, I was responsible for the project's vision and execution:</p>
-        <ul>
-          <li><strong>Game Design:</strong> Conceptualized and designed the core game mechanics, wrote the rulebook, and balanced gameplay.</li>
-          <li><strong>Team Leadership:</strong> Managed a team of four, coordinating tasks and ensuring the project was completed on schedule.</li>
-        </ul>
+      </div>
 
-        <h4>Team Coordination</h4>
-        <ul>
-          <li><strong>Art Team (2 members):</strong> Directed the visual style, card illustration, and overall aesthetic.</li>
-          <li><strong>Research &amp; Development (1 member):</strong> Collaborated on building the game's world and lore by researching relevant materials and brainstorming creative ideas.</li>
-        </ul>
-
-        <h4>🎨 Art Style</h4>
-        <p>
-          The game features a unique <strong>Gothic dark-fairytale aesthetic</strong>. The visual design uses a deep blue color
-          palette to create a mysterious atmosphere, populated by anthropomorphic characters like a skeleton wearing an earring.
-          The art is framed with vintage patterns and stylized fonts like "Night Dancer," creating an elegant yet eerie visual
-          tension that immerses players in the game's world.
-        </p>
-
-        <h4>🎲 Gameplay Mechanics</h4>
-        <p>
-          Flipping the traditional RPG script, this game puts players in the shoes of the <strong>main villain boss</strong>
-          rather than the hero. Instead of going on an adventure, your goal is to ruthlessly defend your lair. The hero
-          advances automatically each turn, and you must use <strong>dice rolls</strong> to trigger deadly traps and
-          manipulate scene effects. It is a strategic battle of attrition where you must defeat the hero before they
-          reach the final destination.
-        </p>
-
-        <h4>🎴 Card Gallery</h4>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin:16px 0 24px;">
-          <img src="images/card-4.png" alt="Card artwork" style="width:100%;border-radius:6px;box-shadow:var(--shadow-sm);">
-          <img src="images/card-5.png" alt="Card artwork" style="width:100%;border-radius:6px;box-shadow:var(--shadow-sm);">
-          <img src="images/card-8.png" alt="Card artwork" style="width:100%;border-radius:6px;box-shadow:var(--shadow-sm);">
-          <img src="images/card-9.png" alt="Card artwork" style="width:100%;border-radius:6px;box-shadow:var(--shadow-sm);">
-          <img src="images/card-6.png" alt="Card artwork" style="width:100%;border-radius:6px;box-shadow:var(--shadow-sm);">
-          <img src="images/card-7.png" alt="Card artwork" style="width:100%;border-radius:6px;box-shadow:var(--shadow-sm);">
-        </div>
-
-        <h3>3D Game Project — Zombie Survival Prototype</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/1IvPCd0GMHU" title="3D Project" style="width:100%;max-width:600px;border-radius:8px;box-shadow:var(--shadow-md);border:none;aspect-ratio:16/9;margin:12px 0;" allowfullscreen></iframe>
-        <p>
-          In July 2025, I built a 3D survival game prototype in Unity during the UCLA Game Lab Summer
-          Institute — entirely on my own. Set in a zombie world, the goal is to collect four experience
-          orbs to complete the level.
-        </p>
-        <p>
-          The game opens on a road lined with abandoned cars, leading toward a distant town with ruined
-          houses on both sides. From the very start, the player can look up and see the mountain peak
-          where the final orb floats — a deliberate visual hint of the goal ahead. At its core, this
-          project was an exercise in <strong>guided level design</strong>: steering the player forward
-          through the environment without relying on text instructions.
-        </p>
-        <p>
-          The first orb sits right at the start of the road, teaching the player what to look for. The
-          next two are tucked into the narrow gaps between the ruined houses on the left, rewarding a
-          careful search. An invisible wall — paired with a small on-screen hint — blocks players who
-          try to climb the mountain directly, gently funneling them along the intended path. Finally, a
-          glowing portal on the right side of the road teleports the player to the peak, where the last
-          orb floats in mid-air and must be collected by leaping from the peak and falling through it.
-        </p>
-        <p>
-          I made some of the assets myself and used free resources for others. Built in a short time,
-          this prototype was a focused way to practice a range of new skills:
-        </p>
-        <ul>
-          <li><strong>Visuals &amp; Environment:</strong> a custom sky shader, terrain sculpting, and scene composition.</li>
-          <li><strong>Core Mechanics:</strong> a working portal teleportation system.</li>
-          <li><strong>Technical Effects:</strong> custom particle systems.</li>
-          <li><strong>Audio:</strong> realistic footstep sounds and ambient zombie noises, implemented through Unity's native audio system.</li>
-        </ul>
-
-        <h3>2D Game Project — Protato</h3>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/DxGQ4NgK_yM" title="2D Project" style="width:100%;max-width:600px;border-radius:8px;box-shadow:var(--shadow-md);border:none;aspect-ratio:16/9;margin:12px 0;" allowfullscreen></iframe>
-        <p>
-          In July 2025, at the same UCLA Game Lab Summer Institute, I independently built a 2D survival
-          game called Protato. Set in a world where humans have wiped out all zombies, the player takes on
-          the role of the very last zombie on Earth, trying to survive and escape from human hunters.
-        </p>
-        <p>
-          My main goal was to create a game where players learn through failure — exploring the map by
-          dying and trying again. The game has two enemy types: lightweight enemies with low health, and
-          heavy enemies with high health. It is designed so that players must act quickly at the start or
-          be surrounded and killed. Scattered across the map are breakable fridges; smashing one drops a
-          brain that restores health and adds to the score.
-        </p>
-        <p>
-          The heart of the design is the level layout and how it guides the player. I placed a fake portal
-          in the bottom-right corner, reachable only through a very hard spike gauntlet — some of the
-          spikes, however, can be shot and destroyed, which gives players a false sense of hope that the
-          exit is within reach. Stepping onto the fake portal triggers an instant bad ending, leaving only
-          a small line of text: "A wall is lying." The real portal sits at the top of the map, right near
-          the starting point, hidden outside a wall that only looks solid — shooting it twice breaks it and
-          reveals the true escape. This pairing of a fake ending and a true ending pushes players to
-          rethink the map they thought they knew.
-        </p>
-        <p>
-          I made some of the assets myself and used free resources for others. As a prototype built in a
-          short time, it was a focused way to practice a range of new skills:
-        </p>
-        <ul>
-          <li><strong>Core Mechanics:</strong> enemy AI with distinct behaviors, plus health and score systems.</li>
-          <li><strong>Level Design:</strong> hidden paths, breakable walls, and a fake portal that misleads players.</li>
-          <li><strong>Player Guidance:</strong> using death as a learning tool to steer players toward the real exit.</li>
-          <li><strong>Audio &amp; Visuals:</strong> simple 2D art and sound effects to match the zombie theme.</li>
-        </ul>
-
-        <h2>Skills Gained</h2>
-        <div class="skills-cloud" style="margin-top: 16px;">
+      <div style="text-align:center;">
+        <div class="skills-cloud" style="justify-content:center;">
           <span class="skill-tag">Game Design</span>
           <span class="skill-tag">3D Development</span>
           <span class="skill-tag">2D Animation</span>
           <span class="skill-tag">Prototyping</span>
-          <span class="skill-tag">Team Collaboration</span>
-          <span class="skill-tag">Creative Coding</span>
-          <span class="skill-tag">Interactive Media</span>
+          <span class="skill-tag">Team Leadership</span>
         </div>
-
       </div>
+
     </div>
   </main>
 

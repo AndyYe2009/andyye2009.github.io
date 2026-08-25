@@ -15,23 +15,6 @@
       margin: 0 auto 32px;
       display: block;
     }
-    .project-detail h2 {
-      margin-top: 48px;
-      margin-bottom: 16px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid var(--color-border);
-    }
-    .project-detail h3 {
-      margin-top: 28px;
-      margin-bottom: 10px;
-    }
-    .project-detail p, .project-detail li {
-      color: var(--color-text-muted);
-      line-height: 1.8;
-    }
-    .project-detail ul {
-      margin: 12px 0 12px 24px;
-    }
     .stat-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -45,25 +28,12 @@
       padding: 20px;
       text-align: center;
     }
-    .stat-card .stat-value {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-accent);
-    }
-    .stat-card .stat-label {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      margin-top: 4px;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 24px;
-      color: var(--color-text-muted);
-      font-size: 0.9rem;
-    }
+    .stat-card .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--color-accent); }
+    .stat-card .stat-label { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
+    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
+    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
   </style>
 </head>
 <body>
@@ -76,176 +46,99 @@
       <a href="projects.html" class="back-link">← Back to Projects</a>
 
       <div class="page-header">
-        <h1>Shogun AI — Game Auto-Play System</h1>
-        <p>A Python AI that automatically plays Shogun Showdown using computer vision and tactical decision engines</p>
+        <h1>Shogun AI — Game Auto-Play</h1>
+        <p>A Python AI that watches the screen and plays Shogun Showdown for me</p>
       </div>
 
       <img src="images/shogun-ai-cover.png" alt="Shogun AI Gameplay" class="project-hero-img">
 
-      <div class="project-detail">
-
-        <!-- Stats -->
-        <div class="stat-grid">
-          <div class="stat-card">
-            <div class="stat-value">3</div>
-            <div class="stat-label">AI Backends</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">614</div>
-            <div class="stat-label">Rule Engine Lines</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">500</div>
-            <div class="stat-label">Max Turns / Run</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-value">0.15s</div>
-            <div class="stat-label">Action Interval</div>
-          </div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">3</div>
+          <div class="stat-label">AI Backends</div>
         </div>
-
-        <h2>Overview</h2>
-        <p>
-          Shogun AI is a Python-based <strong>fully automatic game-playing agent</strong> for
-          <strong>Shogun Showdown</strong> — a turn-based tactical roguelike. The AI captures the game
-          screen, analyzes the game state using <strong>OpenCV computer vision</strong>, makes tactical
-          decisions through a multi-layer rule engine (or local LLM), and executes keyboard actions to play the game.
-        </p>
-
-        <h2>Pipeline</h2>
-        <p style="font-size: 1.1rem; text-align: center; margin: 24px 0;">
-          <strong>Screenshot → CV Parse → Decision → Execute → Loop</strong>
-        </p>
-
-        <h3>1. Screen Capture</h3>
-        <p>
-          Uses <code>mss</code> for fast screen capture and <code>pygetwindow</code> to locate the
-          Shogun Showdown game window. Supports background mode (no focus stealing) via Windows API
-          key injection and configurable crop regions for borderless window setups.
-        </p>
-
-        <h3>2. Computer Vision Parsing</h3>
-        <p>
-          The <strong>screen parser</strong> uses OpenCV to analyze pixel data without relying on
-          AI vision models — making it fast, deterministic, and free. It detects:
-        </p>
-        <ul>
-          <li>Player HP, position, facing direction, character class</li>
-          <li>Enemy positions, HP bars, and <strong>next-turn intent indicators</strong></li>
-          <li>Skill tile states: cooldown (gray saturation analysis), damage values, range</li>
-          <li>Attack queue count and queued skill indices</li>
-          <li>Consumable items and counts</li>
-          <li>Game state transitions: main menu, shop, victory, defeat</li>
-        </ul>
-
-        <h3>3. Decision Engine</h3>
-
-        <h4>Rule Engine (Default)</h4>
-        <p>
-          A <strong>614-line prioritized decision system</strong> that doesn't require any AI model.
-          Runs instantly with zero API cost.
-        </p>
-        <ul>
-          <li><strong>Priority 1 — Queue Full:</strong> Release all skills immediately</li>
-          <li><strong>Priority 2 — Has Queued Skills:</strong> Release or continue combo if lethal opportunity exists</li>
-          <li><strong>Priority 3 — Threat Response:</strong> If enemy is about to attack → find lethal combo → if impossible, swap/dodge → otherwise hit with best skill</li>
-          <li><strong>Priority 4 — Positioning:</strong> Move toward enemies, turn around, or wait for cooldowns</li>
-          <li><strong>Lethal combo calculator:</strong> Exhaustively searches 1/2/3-skill combinations to find minimal overkill</li>
-          <li><strong>AOE bias:</strong> Prefers melee AOE when enemies are adjacent (conserves ranged cooldowns)</li>
-        </ul>
-
-        <h4>Ollama LLM Backend</h4>
-        <p>
-          Uses a <strong>local language model</strong> (via Ollama) for decision-making. The game state
-          is converted to structured text, and the LLM returns JSON actions. Features:
-        </p>
-        <ul>
-          <li>Supports any Ollama model (minicpm-v, llava, etc.)</li>
-          <li>Auto-fallback: tries configured model, then fallback models in order</li>
-          <li>Structured JSON output with validation</li>
-        </ul>
-
-        <h4>Claude API Backend</h4>
-        <p>
-          Optional integration with Anthropic's Claude API for the best decision quality.
-          Uses the vision API for screen analysis and text API for tactical decisions.
-        </p>
-
-        <h3>4. Action Execution</h3>
-        <p>
-          Uses <code>pydirectinput</code> for fast, DirectInput-level keyboard simulation. Supports:
-        </p>
-        <ul>
-          <li>Movement: A/D keys (left/right on grid)</li>
-          <li>Turn: W key (flip character facing)</li>
-          <li>Skill cursor: Left/Right arrow keys to navigate skill bar</li>
-          <li>Queue: Enter key to add skill to attack queue</li>
-          <li>Release: Space key to execute queued skills</li>
-          <li>Consumables: Q/E keys</li>
-          <li>Wait: S key (skip turn)</li>
-        </ul>
-
-        <h2>Playbook System</h2>
-        <p>
-          A <strong>learning system</strong> that records successful tactical decisions and replays them
-          in similar situations. Each entry stores:
-        </p>
-        <ul>
-          <li><strong>Fingerprint:</strong> compressed scene signature (enemy count, ready skills, HP%)</li>
-          <li><strong>Actions:</strong> the sequence of moves that worked</li>
-          <li><strong>Score delta:</strong> how effective the play was</li>
-          <li><strong>Reasoning:</strong> why the AI chose this action</li>
-        </ul>
-        <p>
-          When encountering a similar situation, the AI retrieves matching playbook entries and
-          uses them as few-shot examples to guide the LLM decision (or directly replays them
-          with the best score).
-        </p>
-
-        <h2>Smart Recovery Systems</h2>
-        <ul>
-          <li><strong>Stuck detection:</strong> Tracks HP, enemy count, and position over 3 turns — if unchanged, auto-recovers</li>
-          <li><strong>Auto-restart on death:</strong> Detects defeat screen, holds W to restart, confirms with Space/Enter</li>
-          <li><strong>Non-combat screen handling:</strong> Recognizes main menu, character select, shop — presses Space to advance</li>
-          <li><strong>Action validation:</strong> Pre-execution checks prevent impossible actions (e.g., queuing when full, releasing when empty)</li>
-          <li><strong>Cooldown tracking:</strong> Deterministic tracker overrides CV mis-reads to prevent using skills on cooldown</li>
-          <li><strong>Background mode:</strong> Plays without stealing window focus — user can use the computer while AI runs</li>
-        </ul>
-
-        <h2>Configurable Features</h2>
-        <ul>
-          <li><strong>Multi-backend:</strong> Rule engine (free, fast) / Ollama (local LLM) / Claude API (best quality)</li>
-          <li><strong>Skill scanning:</strong> Optional vision-model skill bar identification</li>
-          <li><strong>Quiet mode:</strong> Minimal console output for long training runs</li>
-          <li><strong>Playbook management:</strong> View stats, clear history, or replay top strategies</li>
-          <li><strong>Environment config:</strong> All settings via .env file or environment variables</li>
-        </ul>
-
-        <h2>Scoring System</h2>
-        <ul>
-          <li>Damage dealt: <strong>+5/dmg</strong></li>
-          <li>Enemy killed: <strong>+10/kill</strong></li>
-          <li>Damage taken: <strong>-30/hp</strong></li>
-          <li>Skill miss penalty: penalty for skills that don't connect</li>
-          <li>Action bonus: rewards using skills instead of idling</li>
-          <li>Idle penalty: small penalty for wait turns without reason</li>
-        </ul>
-
-        <h2>Tech Stack</h2>
-        <div class="skills-cloud">
-          <span class="skill-tag">Python 3.12</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Ollama</span>
-          <span class="skill-tag">pyautogui</span>
-          <span class="skill-tag">pydirectinput</span>
-          <span class="skill-tag">mss</span>
-          <span class="skill-tag">numpy</span>
-          <span class="skill-tag">Pillow</span>
-          <span class="skill-tag">httpx</span>
-          <span class="skill-tag">Computer Vision</span>
+        <div class="stat-card">
+          <div class="stat-value">614</div>
+          <div class="stat-label">Rule-Engine Lines</div>
         </div>
+        <div class="stat-card">
+          <div class="stat-value">500</div>
+          <div class="stat-label">Max Turns / Run</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">0.15s</div>
+          <div class="stat-label">Action Interval</div>
+        </div>
+      </div>
+
+      <p class="overview">
+        It captures the screen, parses the game state with OpenCV, and picks a move — either through a
+        hand-written rule engine or a local LLM. <strong>Screenshot → CV Parse → Decide → Execute → Loop.</strong>
+      </p>
+
+      <div class="accordion-wrap">
+
+        <details class="accordion">
+          <summary>📸 Screen Capture & CV Parsing</summary>
+          <div class="accordion-body">
+            <ul>
+              <li><code>mss</code> for fast capture, <code>pygetwindow</code> to find the game window; background mode (no focus stealing)</li>
+              <li>OpenCV parses HP, position, facing, enemy intent, skill cooldowns, damage, queue, items, and menu/victory states</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>🧭 Decision Engine (3 backends)</summary>
+          <div class="accordion-body">
+            <p><strong>Rule engine (default):</strong> 614 prioritized rules — queue release, threat response, lethal-combo search, positioning. Free and instant.</p>
+            <p><strong>Ollama LLM:</strong> game state → structured text → JSON action, with auto-fallback across models.</p>
+            <p><strong>Claude API:</strong> vision for screen analysis + text for tactical decisions.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>📖 Playbook System</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Records successful tactics (scene fingerprint + actions + score) and replays them in similar situations</li>
+              <li>Used as few-shot examples to guide the LLM, or replayed directly with the best score</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>🔁 Smart Recovery</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Stuck detection over 3 turns, auto-restart on death, non-combat screen handling</li>
+              <li>Action validation, deterministic cooldown tracking, background mode</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>⚖️ Scoring System</summary>
+          <div class="accordion-body">
+            <ul>
+              <li>Damage +5/dmg, kill +10, damage taken −30/hp, miss penalty, idle penalty</li>
+            </ul>
+          </div>
+        </details>
 
       </div>
+
+      <div style="text-align:center;">
+        <div class="skills-cloud" style="justify-content:center;">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">Ollama</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">pyautogui</span>
+        </div>
+        <p style="margin-top:16px;"><a href="https://github.com/AndyYe2009/shogun-ai" target="_blank" rel="noopener">View the code →</a></p>
+      </div>
+
     </div>
   </main>
 
