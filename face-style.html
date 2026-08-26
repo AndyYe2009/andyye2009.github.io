@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Face Style — AI hairstyle recommendation app by Andy's team">
+  <title>Andy - Face Style</title>
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <style>
+    .project-hero-img {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      margin: 0 auto 32px;
+      display: block;
+    }
+    .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
+    .stat-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .stat-card .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--color-accent); }
+    .stat-card .stat-label { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
+    .back-link:hover { color: var(--color-accent); }
+    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
+    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-title {
+      text-align: center;
+      margin: 48px 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container">
+
+      <a href="projects.html" class="back-link">← Back to Projects</a>
+
+      <div class="page-header">
+        <h1>Face Style — AI Hairstyle Recommendation</h1>
+        <p>An AI app that finds the hairstyle that actually fits your face</p>
+      </div>
+
+      <img src="images/face-style-1.png" alt="Face Style AI hairstyle recommendation app" class="project-hero-img">
+
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-value">6</div>
+          <div class="stat-label">Face Shapes Recognized</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">96%+</div>
+          <div class="stat-label">Face-Recognition Accuracy</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">40+</div>
+          <div class="stat-label">Hairstyle Templates</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">3</div>
+          <div class="stat-label">Person Team (I led)</div>
+        </div>
+      </div>
+
+      <p class="overview">
+        Face Style (焕颜) uploads a front-facing photo, identifies your face shape, and recommends
+        hairstyles that actually fit — then previews them before you commit. I led a 3-person team
+        to build the product and pitch it to shareholders.
+      </p>
+
+      <div class="accordion-wrap">
+
+        <details class="accordion">
+          <summary>🧠 AI Face-Shape Analysis</summary>
+          <div class="accordion-body">
+            <p>Deep-learning face recognition classifies a front-facing photo into <strong>6 face shapes</strong> — round, square, heart, diamond, oval, and oblong — each mapped to the styles that flatter it.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>💇 Smart Hairstyle Matching</summary>
+          <div class="accordion-body">
+            <p>A multi-factor engine weighs face shape, style preference, hair texture, and life scene. Hairstyles span <strong>short</strong> (fade, crew cut, buzz), <strong>medium</strong> (wolf cut, mullet, textured perm), and <strong>long</strong> (center-part, man-bun, Japanese-style long).</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>👤 Virtual Try-On</summary>
+          <div class="accordion-body">
+            <p>AR real-time preview — see the hairstyle on your own photo before you commit, with zero trial-and-error cost.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>📊 Personalized Style Report</summary>
+          <div class="accordion-body">
+            <p>Generates a personal image-analysis report and tracks your style evolution over time.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>👥 Team &amp; Roles</summary>
+          <div class="accordion-body">
+            <p>A 3-person team I led. I served as <strong>CTO</strong> — owning the AI vision model and the technical build — working alongside a CEO and a CSO.</p>
+          </div>
+        </details>
+
+        <details class="accordion">
+          <summary>📈 Business Plan</summary>
+          <div class="accordion-body">
+            <p>We built a full pitch for shareholders. Target: China's 300-billion-yuan beauty &amp; hair market and 150M+ young users (18–35). Monetization: freemium, brand ads, e-commerce, and B2B salon tools.</p>
+          </div>
+        </details>
+
+      </div>
+
+      <h2 class="gallery-title">Screenshots</h2>
+      <div class="gallery">
+        <img src="images/face-style-1.png" alt="Face Style app screenshot">
+        <img src="images/face-style-2.png" alt="Face Style app screenshot">
+        <img src="images/face-style-3.png" alt="Face Style app screenshot">
+        <img src="images/face-style-4.png" alt="Face Style app screenshot">
+        <img src="images/face-style-5.png" alt="Face Style app screenshot">
+        <img src="images/face-style-6.png" alt="Face Style app screenshot">
+        <img src="images/face-style-7.png" alt="Face Style app screenshot">
+        <img src="images/face-style-8.png" alt="Face Style app screenshot">
+      </div>
+
+      <div style="text-align:center; margin-top: 48px;">
+        <div class="skills-cloud" style="justify-content:center;">
+          <span class="skill-tag">AI</span>
+          <span class="skill-tag">Deep Learning</span>
+          <span class="skill-tag">Face Recognition</span>
+          <span class="skill-tag">Computer Vision</span>
+          <span class="skill-tag">AR</span>
+          <span class="skill-tag">Web App</span>
+          <span class="skill-tag">Product Design</span>
+          <span class="skill-tag">Team Leadership</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+  <script src="js/main.js?v=2"></script>
+</body>
+</html>
