@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Andy's hobbies — cars, art, voice acting, and games">
+  <meta name="description" content="Andy's hobbies — cars, art, music, and games">
   <title>Andy - Hobbies</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
@@ -46,6 +46,40 @@
       border-radius: var(--radius);
       border: 1px solid var(--color-border);
       box-shadow: var(--shadow-sm);
+    }
+    /* Music & performance videos */
+    .perf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .perf-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .video-slot {
+      aspect-ratio: 16 / 9;
+      border: 2px dashed var(--color-border);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      background: var(--color-surface);
+    }
+    .video-slot video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: var(--radius);
+      display: block;
+    }
+    .perf-caption {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
     }
     /* Small hobby chips */
     .hobby-cards {
@@ -119,13 +153,27 @@
         <p style="margin-top:16px;"><a href="artwork.html">See my artwork →</a></p>
       </section>
 
-      <!-- Voice acting -->
+      <!-- Music & Performance -->
       <section class="hobby-section">
-        <h2>🎙️ Voice Acting</h2>
+        <h2>🎭 Music &amp; Performance</h2>
         <p class="hobby-lead">
-          I'm the Vice President of my school's Voice Acting Club. Giving a character a voice — especially
-          a villain's — is my favorite kind of performance.
+          Beyond code and drawing, I like to perform — singing show tunes with friends and acting
+          out movie scenes, just for the fun of it.
         </p>
+        <div class="perf-grid">
+          <div class="perf-item">
+            <div class="video-slot">🎥 Video coming soon</div>
+            <p class="perf-caption">🎬 Acting out Forrest Gump's run — just for fun</p>
+          </div>
+          <div class="perf-item">
+            <div class="video-slot">🎥 Video coming soon</div>
+            <p class="perf-caption">🎤 "Look Down" from Les Misérables — with classmates</p>
+          </div>
+          <div class="perf-item">
+            <div class="video-slot">🎥 Video coming soon</div>
+            <p class="perf-caption">🎤 Opening number of Hamilton — with classmates</p>
+          </div>
+        </div>
       </section>
 
       <!-- Games -->
