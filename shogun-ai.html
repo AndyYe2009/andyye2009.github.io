@@ -71,10 +71,12 @@
 
         <h3>What I wanted vs. what actually happened</h3>
         <p>
-          Reading the game state with computer vision is the hard part, and it's still not fully
-          reliable — it works on the screens I tested, but I haven't covered the whole game. The rule
-          engine can play, but it's not smarter than a careful human. I built this mostly to
-          understand how computer vision and decision-making fit together, and it did teach me that.
+          There's a lot in this project I'm not satisfied with. Reading the game screen with computer
+          vision turned out to be much harder than I expected — it misreads things fairly often, so I
+          had to add a lot of checks and fallbacks (stuck detection, cooldown overrides, "just wait a
+          turn" safety nets) just to keep it from breaking. Figuring out which skills are ready is
+          especially unreliable. The rule engine can play, but it's nowhere near a careful human, and
+          I haven't fixed the parts that bother me most.
         </p>
       </div>
 
