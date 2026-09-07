@@ -3,233 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About Andy — background, skills, and experience">
+  <meta name="description" content="About Andy — an honest introduction">
   <title>Andy - About</title>
   <link rel="stylesheet" href="css/style.css?v=2">
-  <style>
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 14px;
-      margin: 24px 0 8px;
-    }
-    .highlight {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-    .highlight .hi-emoji { font-size: 1.3rem; }
-    .highlight .hi-title { font-weight: 600; font-size: 0.9rem; margin: 6px 0 2px; }
-    .highlight .hi-sub { font-size: 0.8rem; color: var(--color-text-muted); }
-  </style>
 </head>
 <body>
 
-  <!-- Nav placeholder -->
   <div id="nav-placeholder"></div>
 
-  <!-- Main content -->
   <main class="page-main">
     <div class="container">
 
-      <!-- Page header -->
       <div class="page-header">
         <h1>About Me</h1>
       </div>
 
-      <!-- Bio + Skills -->
-      <div class="about-grid">
+      <div style="max-width: 720px; margin: 0 auto;">
 
-        <!-- Left: Bio -->
-        <div>
-          <h2 style="margin-bottom: 20px; font-size: 1.5rem;">Bio</h2>
-          <p class="about-bio">
-            I'm a Grade 12 student at <strong>Shanghai Datong High School</strong>. More than any single
-            field, what defines me is <em>making</em> — my curiosity keeps pulling me across AI, art,
-            invention, and performance, and I learn each one by building it. I don't stay in one lane,
-            and I like it that way.
-          </p>
+        <p style="font-size: 1.05rem; line-height: 1.9; color: var(--color-text);">
+          I'm a Grade 12 student at Shanghai Datong High School. I'm interested in engineering and
+          AI, and I learn by building small projects on my own time.
+        </p>
 
-          <div class="highlights">
-            <div class="highlight">
-              <div class="hi-emoji">📚</div>
-              <div class="hi-title">AP</div>
-              <div class="hi-sub">5s in Micro, Macro, Calc BC · 4s in Stats, Physics C, CS A</div>
-            </div>
-            <div class="highlight">
-              <div class="hi-emoji">🌍</div>
-              <div class="hi-title">TOEFL 103</div>
-              <div class="hi-sub">International Division</div>
-            </div>
-            <div class="highlight">
-              <div class="hi-emoji">✏️</div>
-              <div class="hi-title">Comic Level 8</div>
-              <div class="hi-sub">Highest grade</div>
-            </div>
-            <div class="highlight">
-              <div class="hi-emoji">🛴</div>
-              <div class="hi-title">2 Patents</div>
-              <div class="hi-sub">See <a href="patents.html">inventions →</a></div>
-            </div>
-            <div class="highlight">
-              <div class="hi-emoji">🤖</div>
-              <div class="hi-title">Robotics 1st</div>
-              <div class="hi-sub">National competition</div>
-            </div>
-            <div class="highlight">
-              <div class="hi-emoji">🎙️</div>
-              <div class="hi-title">Voice Acting</div>
-              <div class="hi-sub">Club Vice President</div>
-            </div>
-          </div>
+        <p style="font-size: 1.05rem; line-height: 1.9; color: var(--color-text); margin-top: 16px;">
+          I want to be upfront about how I work: most of my AI projects were built with a lot of
+          help from <strong>Claude</strong>, an AI coding assistant. I came up with the ideas and
+          decided what to build, and I try to understand the code — but Claude did a big share of
+          the writing and debugging. The one exception is my UCLA Game Lab work, which I made myself.
+        </p>
+
+        <p style="font-size: 1.05rem; line-height: 1.9; color: var(--color-text); margin-top: 16px;">
+          Outside of computers, I paint — mostly watercolor and comics — and I've been doing that
+          for years.
+        </p>
+
+        <h2 style="margin: 40px 0 16px;">What I know</h2>
+        <div class="skills-cloud">
+          <span class="skill-tag">Unity</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Claude (AI assistant)</span>
+          <span class="skill-tag">Painting</span>
+          <span class="skill-tag">Comics</span>
+          <span class="skill-tag">Watercolor</span>
         </div>
 
-        <!-- Right: Skills -->
-        <div>
-          <h2 style="margin-bottom: 20px; font-size: 1.5rem;">Skills</h2>
-
-          <h3 style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">AI & Game Dev</h3>
-          <div class="skills-cloud" style="margin-bottom: 28px;">
-            <span class="skill-tag">Unity</span>
-            <span class="skill-tag">C#</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">Neural Networks</span>
-            <span class="skill-tag">Genetic Algorithms</span>
-            <span class="skill-tag">Computer Vision</span>
-            <span class="skill-tag">OpenCV</span>
-            <span class="skill-tag">Game AI</span>
-          </div>
-
-          <h3 style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Web & Tools</h3>
-          <div class="skills-cloud" style="margin-bottom: 28px;">
-            <span class="skill-tag">HTML / CSS</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-          </div>
-
-          <h3 style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Art & Creativity</h3>
-          <div class="skills-cloud" style="margin-bottom: 28px;">
-            <span class="skill-tag">Painting</span>
-            <span class="skill-tag">Comic Art</span>
-            <span class="skill-tag">Digital Illustration</span>
-          </div>
-
-          <h3 style="font-size: 0.85rem; color: var(--color-text-muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Engineering & Robotics</h3>
-          <div class="skills-cloud">
-            <span class="skill-tag">Robotics</span>
-            <span class="skill-tag">Invention Patent</span>
-            <span class="skill-tag">Mechanical Design</span>
-          </div>
-        </div>
+        <p style="margin-top: 20px; color: var(--color-text-muted);">
+          That's the honest list. Everything on this site is something I've actually worked on.
+        </p>
 
       </div>
-
-      <!-- Timeline -->
-      <section class="section">
-        <div class="section-header">
-          <h2>Experience</h2>
-          <p>← Drag or swipe to explore →</p>
-        </div>
-
-        <div class="timeline-h">
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Aug 2026</div>
-            <div class="timeline-title">Youth AI Camp</div>
-            <div class="timeline-desc">Future Leaders in AI Entrepreneurship.</div>
-            <img src="images/face-style-1.png" alt="Face Style AI hairstyle recommendation app" class="timeline-media">
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Jul 2026</div>
-            <div class="timeline-title">Comic Level 8 Certification</div>
-            <div class="timeline-desc">Highest-grade comic art certification.</div>
-            <img src="images/comic-level8.jpg" alt="Comic Level 8 artwork by Andy" class="timeline-media">
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Jun 2026</div>
-            <div class="timeline-title">ACSL — 37/40</div>
-            <div class="timeline-desc">American Computer Science League.</div>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Jan 2026</div>
-            <div class="timeline-title">Second Patent Filed</div>
-            <div class="timeline-desc">Water surface floating object collection boat.</div>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">May – Oct 2025</div>
-            <div class="timeline-title">Friendship Ambassador Training Camp</div>
-            <div class="timeline-desc">Cross-cultural leadership program.</div>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Jul 2025</div>
-            <div class="timeline-title">UCLA Game Lab Summer Institute</div>
-            <div class="timeline-desc">Three games in one summer.</div>
-            <img src="images/ucla-card-game.jpg" alt="Team card game at UCLA" class="timeline-media">
-            <iframe class="timeline-media" src="https://www.youtube.com/embed/1IvPCd0GMHU" title="UCLA 3D project" allowfullscreen></iframe>
-            <iframe class="timeline-media" src="https://www.youtube.com/embed/DxGQ4NgK_yM" title="UCLA 2D project" allowfullscreen></iframe>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">2025 – Present</div>
-            <div class="timeline-title">Vice President, Voice Acting Club</div>
-            <div class="timeline-desc">Leading training and performances.</div>
-            <img src="images/voice-club.jpg" alt="Voice Acting Club" class="timeline-media">
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">2024 – Present</div>
-            <div class="timeline-title">Student Union, Activities Dept.</div>
-            <div class="timeline-desc">Organizing school festivals and events.</div>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Mar 2024</div>
-            <div class="timeline-title">First Patent — Substantive Examination</div>
-            <div class="timeline-desc">Scooter innovation.</div>
-            <img src="images/patent-scooter.png" alt="Scooter invention patent design" class="timeline-media">
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Jun 2024</div>
-            <div class="timeline-title">Gold — Int'l Children's Art Competition</div>
-            <div class="timeline-desc">Global stage, painting.</div>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Feb 2024</div>
-            <div class="timeline-title">Gold — MeiYuan Cup</div>
-            <div class="timeline-desc">National youth painting and calligraphy.</div>
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">Sep 2023</div>
-            <div class="timeline-title">"Outstanding Work" — People's Art Youth</div>
-            <div class="timeline-desc">Old Shanghai painting.</div>
-            <img src="images/peoples-art-youth.jpg" alt="Award-winning artwork" class="timeline-media">
-          </div>
-
-          <div class="timeline-h-item">
-            <div class="timeline-date">2020 – 2024</div>
-            <div class="timeline-title">Robotics — National 1st Prize</div>
-            <div class="timeline-desc">Building category.</div>
-          </div>
-
-        </div>
-      </section>
 
     </div>
   </main>
 
-  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
-
   <script src="js/main.js?v=2"></script>
 </body>
 </html>

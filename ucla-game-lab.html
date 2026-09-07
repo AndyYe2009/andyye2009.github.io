@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="UCLA Game Lab Summer Institute — game design, 3D & 2D projects by Andy">
+  <meta name="description" content="UCLA Game Lab Summer Institute — three games Andy made himself, without AI help">
   <title>Andy - UCLA Game Lab</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
@@ -17,8 +17,9 @@
     }
     .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
-    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
-    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
+    .prose { max-width: 760px; margin: 0 auto; line-height: 1.85; color: var(--color-text-muted); font-size: 1rem; }
+    .prose p { margin-bottom: 18px; }
+    .prose h3 { color: var(--color-text); margin: 32px 0 10px; }
     .card-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
     .card-gallery img { width: 100%; border-radius: 6px; box-shadow: var(--shadow-sm); }
     .vid { width: 100%; max-width: 600px; border-radius: 8px; box-shadow: var(--shadow-md); border: none; aspect-ratio: 16/9; margin: 12px 0; display: block; }
@@ -35,59 +36,45 @@
 
       <div class="page-header">
         <h1>UCLA Game Lab Summer Institute</h1>
-        <p>Three games in one summer — design, 3D, and 2D</p>
+        <p>Three games I made myself — no AI help</p>
       </div>
 
       <img src="images/ucla-game-lab-cover.png" alt="UCLA Game Lab Summer Institute" class="project-hero-img">
 
-      <p class="overview">
-        July 2025 at UCLA. I built three projects — led a card game as team leader, then made a 3D and a 2D
-        game on my own. All three share a theme I clearly enjoy: playing the bad guy.
-      </p>
+      <div class="prose">
+        <p>
+          In July 2025 I went to the UCLA Game Lab Summer Institute and made three games. Unlike my
+          AI projects, these I built myself — I'm saying that clearly because it matters to me that
+          the distinction is honest.
+        </p>
 
-      <div class="accordion-wrap">
-
-        <details class="accordion" open>
-          <summary>🃏 Lethal Spire — card game (Team Leader)</summary>
-          <div class="accordion-body">
-            <p>I led a 4-person team to design a Gothic dark-fairytale card game where <strong>you play the villain boss defending your lair</strong>. I wrote the rules, balanced the mechanics, and directed the art.</p>
-            <div class="card-gallery">
-              <img src="images/card-4.png" alt="Lethal Spire card artwork">
-              <img src="images/card-5.png" alt="Lethal Spire card artwork">
-              <img src="images/card-8.png" alt="Lethal Spire card artwork">
-              <img src="images/card-9.png" alt="Lethal Spire card artwork">
-              <img src="images/card-6.png" alt="Lethal Spire card artwork">
-              <img src="images/card-7.png" alt="Lethal Spire card artwork">
-            </div>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🧟 3D — Zombie Survival Prototype</summary>
-          <div class="accordion-body">
-            <iframe class="vid" src="https://www.youtube.com/embed/1IvPCd0GMHU" title="3D Project" allowfullscreen></iframe>
-            <p>A solo 3D survival prototype: collect four experience orbs while zombies roam. It was an exercise in <strong>guided level design</strong> — steering the player with visual hints instead of text. I made a custom sky shader, sculpted terrain, and built a working portal system.</p>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🥔 Protato — 2D Survival</summary>
-          <div class="accordion-body">
-            <iframe class="vid" src="https://www.youtube.com/embed/DxGQ4NgK_yM" title="2D Project" allowfullscreen></iframe>
-            <p>You're the <strong>last zombie on Earth</strong>, hunted by humans. The heart of it is a fake portal that leads to an instant bad ending ("A wall is lying.") and a real exit hidden behind a breakable wall — teaching the player through failure.</p>
-          </div>
-        </details>
-
-      </div>
-
-      <div style="text-align:center;">
-        <div class="skills-cloud" style="justify-content:center;">
-          <span class="skill-tag">Game Design</span>
-          <span class="skill-tag">3D Development</span>
-          <span class="skill-tag">2D Animation</span>
-          <span class="skill-tag">Prototyping</span>
-          <span class="skill-tag">Team Leadership</span>
+        <h3>1. Lethal Spire — a card game (team leader)</h3>
+        <p>
+          I led a 4-person team to design a card game where you play the villain defending your lair.
+          I wrote the rules and balanced the mechanics.
+        </p>
+        <div class="card-gallery">
+          <img src="images/card-4.png" alt="Lethal Spire card artwork">
+          <img src="images/card-5.png" alt="Lethal Spire card artwork">
+          <img src="images/card-8.png" alt="Lethal Spire card artwork">
+          <img src="images/card-9.png" alt="Lethal Spire card artwork">
+          <img src="images/card-6.png" alt="Lethal Spire card artwork">
+          <img src="images/card-7.png" alt="Lethal Spire card artwork">
         </div>
+
+        <h3>2. A 3D zombie survival prototype</h3>
+        <iframe class="vid" src="https://www.youtube.com/embed/1IvPCd0GMHU" title="3D Project" allowfullscreen></iframe>
+        <p>
+          A solo 3D prototype: collect four orbs while zombies roam. I built a simple sky shader,
+          terrain, and a portal system.
+        </p>
+
+        <h3>3. Protato — a 2D survival game</h3>
+        <iframe class="vid" src="https://www.youtube.com/embed/DxGQ4NgK_yM" title="2D Project" allowfullscreen></iframe>
+        <p>
+          A 2D game where you're the last zombie, hunted by humans. The main idea was a fake portal
+          that leads to a bad ending, with the real exit hidden behind a breakable wall.
+        </p>
       </div>
 
     </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Archer vs Assassin — AI battle training system with genetic algorithms">
+  <meta name="description" content="Archer vs Assassin — a Unity experiment where AI units learn to fight, built with Claude's help">
   <title>Andy - Archer vs Assassin</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
@@ -15,40 +15,18 @@
       margin: 0 auto 32px;
       display: block;
     }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin: 24px 0;
-    }
-    .stat-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      padding: 20px;
-      text-align: center;
-    }
-    .stat-card .stat-value {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--color-accent);
-    }
-    .stat-card .stat-label {
-      font-size: 0.85rem;
-      color: var(--color-text-muted);
-      margin-top: 4px;
-    }
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 24px;
-      color: var(--color-text-muted);
-      font-size: 0.9rem;
-    }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
-    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
-    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
+    .prose { max-width: 760px; margin: 0 auto; line-height: 1.85; color: var(--color-text-muted); font-size: 1rem; }
+    .prose p { margin-bottom: 18px; }
+    .prose h3 { color: var(--color-text); margin: 28px 0 10px; }
+    .prose ul { margin: 0 0 18px; padding-left: 22px; }
+    .prose li { margin-bottom: 6px; }
+    .honesty-note {
+      max-width: 760px; margin: 0 auto 32px; padding: 14px 18px;
+      background: #eff6ff; border: 1px solid #dbeafe; border-radius: 8px;
+      color: #1e40af; font-size: 0.95rem; line-height: 1.7;
+    }
     .demo-video { width: 100%; max-width: 640px; border-radius: 8px; box-shadow: var(--shadow-md); border: none; aspect-ratio: 16/9; margin: 0 auto 32px; display: block; }
   </style>
 </head>
@@ -63,133 +41,49 @@
 
       <div class="page-header">
         <h1>Archer vs Assassin — AI Battle</h1>
-        <p>100 AI units teach themselves to fight — through genetic algorithms and neural networks</p>
+        <p>A Unity experiment where AI units learn to fight each other</p>
       </div>
 
       <img src="images/archer-vs-assassin-cover.png" alt="Archer vs Assassin Battlefield" class="project-hero-img">
 
       <iframe class="demo-video" src="https://www.youtube.com/embed/AHChzROr94U" title="Archer vs Assassin gameplay" allowfullscreen></iframe>
 
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-value">100</div>
-          <div class="stat-label">AI Units (50v50)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">48→48→7</div>
-          <div class="stat-label">Neural Network</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">120×80</div>
-          <div class="stat-label">Battlefield</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">0.15s</div>
-          <div class="stat-label">Decision Interval</div>
-        </div>
+      <div class="honesty-note">
+        <strong>Built with Claude.</strong> I came up with the idea and decided what to build, but
+        Claude — an AI coding assistant — wrote and debugged most of the C# code with me. I don't
+        want to present this as something I coded entirely on my own.
       </div>
 
-      <p class="overview">
-        50 archers vs 50 assassins. Each generation picks the best fighter, clones its brain to the whole class,
-        and mutates. Over hundreds of generations, the units evolve real tactics — cover, focus-fire, even baiting.
-      </p>
+      <div class="prose">
+        <p>
+          This is the biggest project I've attempted. It's a Unity simulation where 100 AI units —
+          50 archers and 50 assassins, split into two teams — fight in a 120×80 arena. Each unit runs
+          a small neural network that decides how to move, aim, and attack. Every generation, the
+          best archer and the best assassin have their "brain" copied to the rest of their class and
+          slightly mutated, so over many generations the units gradually get better.
+        </p>
 
-      <div class="accordion-wrap">
+        <h3>What's actually in it</h3>
+        <ul>
+          <li>A hand-written neural network (48 inputs → 48 hidden → 7 outputs) in C#</li>
+          <li>A genetic algorithm that clones and mutates the best units each generation</li>
+          <li>A vision system where teammates share what they see, and cover blocks sight</li>
+          <li>An ammo system for archers, with supply points on the map</li>
+          <li>Save/load, so training can be paused and resumed</li>
+        </ul>
 
-        <details class="accordion">
-          <summary>🧠 Neural Network — 48 inputs</summary>
-          <div class="accordion-body">
-            <p>A <strong>48 → 48 → 7</strong> feedforward network with Tanh activation. The 7 outputs drive movement, aiming, attacking, and two abilities.</p>
-            <ul>
-              <li><strong>Self state (6):</strong> HP/class signal, cooldowns, nearest wall, distance from center, facing</li>
-              <li><strong>Opponent state (9):</strong> relative position, distance, HP, facing, cooldowns, skill active</li>
-              <li><strong>Projectile awareness (15):</strong> 3 projectiles × 5 dims (position, velocity, friend/foe)</li>
-              <li><strong>Team density (6):</strong> allied/enemy counts at Near/Mid/Far ranges</li>
-              <li><strong>Nearest ally (3), local advantage (1), ammo/home distance (1)</strong></li>
-              <li><strong>Nearest cover (3), opponent-behind-cover raycast (1), ammo urgency + supply (2), ability-2 cooldown (1)</strong></li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🏹🗡️ Class Design</summary>
-          <div class="accordion-body">
-            <p><strong>Archer</strong> — HP 1, ranged arrow (0.5s cd), Q dodge (3s), W charged shot (7s, 2 arrows), 10 arrows (+3/kill, 4 supply points).</p>
-            <p><strong>Assassin</strong> — HP 2, melee dagger (0.8s, hits all in range), Q parry arrows in a 45° arc (1.5s), W dash slash (3.5s).</p>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🧬 Genetic Evolution</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Per-generation best archer and assassin selected, brain cloned to all 50 units, then mutated</li>
-              <li>Anti-regression: best-ever brain preserved and restored if a generation regresses</li>
-              <li>Mutation rate 0.15, strength 0.3 · auto-save every 5 generations (atomic JSON, max 3 files)</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>👁️ Team Vision & Fog of War</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Archers see 25 units, assassins 12; cover blocks line-of-sight via raycast</li>
-              <li>Teammates share vision — if any ally sees an enemy, the whole team does</li>
-              <li>Per-team exploration grid (12×8 cells) decays after 5s; assassins march to unexplored cells</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🤝 Team Coordination</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Grouping bonus near 2+ allies; isolation penalty when alone and surrounded</li>
-              <li>Archer–assassin escort bonuses; focus fire (3+ archers on one target); bait mechanic</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🛡️ Cover System</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>20 random cover objects (blue blocks), dual colliders (solid + arrow-blocking trigger)</li>
-              <li>Cover-to-cover advance, ambush-from-cover bonus, penalty for hugging obstacles</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>⚖️ Scoring & Rewards</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Hit +10, kill +25, get hit −3, death −5, escalating time penalty, 120s force-death timeout</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🛡️ Safety & Performance</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Training mode skips effects; static sprite caching; 1000 projectile cap + 3s cleanup</li>
-              <li>Null-reference guards, 2GB memory watchdog, atomic save with corrupt-file quarantine</li>
-            </ul>
-          </div>
-        </details>
-
+        <h3>What I wanted vs. what actually happened</h3>
+        <p>
+          What I hoped for — and haven't fully achieved — is to watch the units genuinely learn
+          tactics on their own, like using cover or focusing fire. Right now, a lot of the
+          interesting-looking behavior comes from rules I wrote by hand (things like "stay near an
+          ally" or "go get ammo when low"), not from the neural network learning it. I'd like to
+          strip back those hand-written rules and let the network do more of the work, but I'm still
+          learning how to do that.
+        </p>
       </div>
 
-      <div style="text-align:center;">
-        <div class="skills-cloud" style="justify-content:center;">
-          <span class="skill-tag">Unity 2022.3</span>
-          <span class="skill-tag">C#</span>
-          <span class="skill-tag">Genetic Algorithm</span>
-          <span class="skill-tag">Neural Network</span>
-          <span class="skill-tag">2D Physics</span>
-        </div>
+      <div style="text-align:center; margin-top: 24px;">
         <p style="margin-top:16px;"><a href="https://github.com/AndyYe2009/archer-vs-assassin" target="_blank" rel="noopener">View the code →</a></p>
       </div>
 

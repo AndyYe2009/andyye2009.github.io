@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Shogun AI — automatic game-playing AI for Shogun Showdown">
+  <meta name="description" content="Shogun AI — a Python program that plays Shogun Showdown on its own, built with Claude's help">
   <title>Andy - Shogun AI</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
@@ -15,25 +15,18 @@
       margin: 0 auto 32px;
       display: block;
     }
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      margin: 24px 0;
-    }
-    .stat-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius);
-      padding: 20px;
-      text-align: center;
-    }
-    .stat-card .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--color-accent); }
-    .stat-card .stat-label { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px; }
     .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
-    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
-    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
+    .prose { max-width: 760px; margin: 0 auto; line-height: 1.85; color: var(--color-text-muted); font-size: 1rem; }
+    .prose p { margin-bottom: 18px; }
+    .prose h3 { color: var(--color-text); margin: 28px 0 10px; }
+    .prose ul { margin: 0 0 18px; padding-left: 22px; }
+    .prose li { margin-bottom: 6px; }
+    .honesty-note {
+      max-width: 760px; margin: 0 auto 32px; padding: 14px 18px;
+      background: #eff6ff; border: 1px solid #dbeafe; border-radius: 8px;
+      color: #1e40af; font-size: 0.95rem; line-height: 1.7;
+    }
   </style>
 </head>
 <body>
@@ -47,95 +40,45 @@
 
       <div class="page-header">
         <h1>Shogun AI — Game Auto-Play</h1>
-        <p>A Python AI that watches the screen and plays Shogun Showdown for me</p>
+        <p>A Python program that plays Shogun Showdown on its own</p>
       </div>
 
       <img src="images/shogun-ai-cover.png" alt="Shogun AI Gameplay" class="project-hero-img">
 
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-value">3</div>
-          <div class="stat-label">AI Backends</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">614</div>
-          <div class="stat-label">Rule-Engine Lines</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">500</div>
-          <div class="stat-label">Max Turns / Run</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">0.15s</div>
-          <div class="stat-label">Action Interval</div>
-        </div>
+      <div class="honesty-note">
+        <strong>Built with Claude.</strong> This was a project I worked on with Claude's help — I
+        directed what to build and tried to understand it, but Claude wrote and debugged most of the
+        Python.
       </div>
 
-      <p class="overview">
-        It captures the screen, parses the game state with OpenCV, and picks a move — either through a
-        hand-written rule engine or a local LLM. <strong>Screenshot → CV Parse → Decide → Execute → Loop.</strong>
-      </p>
+      <div class="prose">
+        <p>
+          A Python program I made to automatically play Shogun Showdown, a turn-based game I like. It
+          takes a screenshot, uses OpenCV to figure out the game state (my health, enemy positions,
+          what skills are ready), then picks a move and presses the keys. I can run the decisions
+          three ways: a hand-written rule engine (the default), a local language model through
+          Ollama, or the Claude API.
+        </p>
 
-      <div class="accordion-wrap">
+        <h3>What's actually in it</h3>
+        <ul>
+          <li>Screen capture and OpenCV parsing of the game state</li>
+          <li>A rule engine (600+ lines) that decides what to do</li>
+          <li>Optional Ollama / Claude API backends for decisions</li>
+          <li>A "playbook" that remembers tactics that worked</li>
+          <li>Stuck detection and auto-restart on death</li>
+        </ul>
 
-        <details class="accordion">
-          <summary>📸 Screen Capture & CV Parsing</summary>
-          <div class="accordion-body">
-            <ul>
-              <li><code>mss</code> for fast capture, <code>pygetwindow</code> to find the game window; background mode (no focus stealing)</li>
-              <li>OpenCV parses HP, position, facing, enemy intent, skill cooldowns, damage, queue, items, and menu/victory states</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🧭 Decision Engine (3 backends)</summary>
-          <div class="accordion-body">
-            <p><strong>Rule engine (default):</strong> 614 prioritized rules — queue release, threat response, lethal-combo search, positioning. Free and instant.</p>
-            <p><strong>Ollama LLM:</strong> game state → structured text → JSON action, with auto-fallback across models.</p>
-            <p><strong>Claude API:</strong> vision for screen analysis + text for tactical decisions.</p>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>📖 Playbook System</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Records successful tactics (scene fingerprint + actions + score) and replays them in similar situations</li>
-              <li>Used as few-shot examples to guide the LLM, or replayed directly with the best score</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🔁 Smart Recovery</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Stuck detection over 3 turns, auto-restart on death, non-combat screen handling</li>
-              <li>Action validation, deterministic cooldown tracking, background mode</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>⚖️ Scoring System</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Damage +5/dmg, kill +10, damage taken −30/hp, miss penalty, idle penalty</li>
-            </ul>
-          </div>
-        </details>
-
+        <h3>What I wanted vs. what actually happened</h3>
+        <p>
+          Reading the game state with computer vision is the hard part, and it's still not fully
+          reliable — it works on the screens I tested, but I haven't covered the whole game. The rule
+          engine can play, but it's not smarter than a careful human. I built this mostly to
+          understand how computer vision and decision-making fit together, and it did teach me that.
+        </p>
       </div>
 
-      <div style="text-align:center;">
-        <div class="skills-cloud" style="justify-content:center;">
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">OpenCV</span>
-          <span class="skill-tag">Ollama</span>
-          <span class="skill-tag">Computer Vision</span>
-          <span class="skill-tag">pyautogui</span>
-        </div>
+      <div style="text-align:center; margin-top: 24px;">
         <p style="margin-top:16px;"><a href="https://github.com/AndyYe2009/shogun-ai" target="_blank" rel="noopener">View the code →</a></p>
       </div>
 

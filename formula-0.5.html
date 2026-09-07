@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Formula 0.5 — AI racing simulator with genetic algorithms and a hand-written neural network">
+  <meta name="description" content="Formula 0.5 — a Unity experiment where AI cars learn to drive, built with Claude's help">
   <title>Andy - Formula 0.5</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
@@ -15,14 +15,18 @@
       margin: 0 auto 32px;
       display: block;
     }
-    .stat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 24px 0; }
-    .stat-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 20px; text-align: center; }
-    .stat-card .stat-value { font-size: 1.8rem; font-weight: 700; color: var(--color-accent); }
-    .stat-card .stat-label { font-size: 0.85rem; color: var(--color-text-muted); margin-top: 4px; }
     .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
-    .overview { max-width: 760px; margin: 0 auto 32px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
-    .accordion-wrap { max-width: 760px; margin: 0 auto 48px; }
+    .prose { max-width: 760px; margin: 0 auto; line-height: 1.85; color: var(--color-text-muted); font-size: 1rem; }
+    .prose p { margin-bottom: 18px; }
+    .prose h3 { color: var(--color-text); margin: 28px 0 10px; }
+    .prose ul { margin: 0 0 18px; padding-left: 22px; }
+    .prose li { margin-bottom: 6px; }
+    .honesty-note {
+      max-width: 760px; margin: 0 auto 32px; padding: 14px 18px;
+      background: #eff6ff; border: 1px solid #dbeafe; border-radius: 8px;
+      color: #1e40af; font-size: 0.95rem; line-height: 1.7;
+    }
     .demo-video { width: 100%; max-width: 640px; border-radius: 8px; box-shadow: var(--shadow-md); border: none; aspect-ratio: 16/9; margin: 0 auto 32px; display: block; }
   </style>
 </head>
@@ -37,102 +41,44 @@
 
       <div class="page-header">
         <h1>Formula 0.5 — AI Racing</h1>
-        <p>20 self-driving cars teach themselves the fastest racing line</p>
+        <p>A Unity experiment where AI cars learn to drive a track</p>
       </div>
 
       <img src="images/formula-0.5-cover.png" alt="Formula 0.5 AI Racing Simulator" class="project-hero-img">
       <iframe class="demo-video" src="https://www.youtube.com/embed/PIdGoHMxcaE" title="Formula 0.5 demo" allowfullscreen></iframe>
 
-      <div class="stat-grid">
-        <div class="stat-card">
-          <div class="stat-value">20</div>
-          <div class="stat-label">AI Cars</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">20→16→2</div>
-          <div class="stat-label">Neural Network</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">8</div>
-          <div class="stat-label">Ray Sensors (150°)</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">3×</div>
-          <div class="stat-label">Training Speed</div>
-        </div>
+      <div class="honesty-note">
+        <strong>Built with Claude.</strong> I set the direction, but Claude helped me write and debug
+        most of the C#. This is a learning project, not something I built from scratch alone.
       </div>
 
-      <p class="overview">
-        Every generation, the fastest car's brain is cloned to all 20 cars with small mutations. Over hundreds
-        of generations, they learn to hug the perfect racing line — no ML-Agents, just a hand-written network.
-      </p>
+      <div class="prose">
+        <p>
+          A Unity simulation where 20 AI cars learn to drive around a procedurally generated track.
+          Each car runs a small neural network I wrote in C# (20 inputs → 16 hidden → 2 outputs:
+          throttle and steering). Every generation, the fastest car's brain is copied to all 20 cars
+          with small mutations, so over many generations they get better at getting around the track.
+        </p>
 
-      <div class="accordion-wrap">
+        <h3>What's actually in it</h3>
+        <ul>
+          <li>A hand-written neural network (20 → 16 → 2) with no external AI libraries</li>
+          <li>8 ray sensors per car, spread over a 150° field of view</li>
+          <li>A genetic algorithm with anti-regression (it keeps the best-ever brain)</li>
+          <li>A track that's generated fresh each run (an ellipse with wavy edges)</li>
+          <li>JSON saving every 5 generations</li>
+        </ul>
 
-        <details class="accordion">
-          <summary>🧠 Neural Network (hand-written)</summary>
-          <div class="accordion-body">
-            <p>A <strong>20 → 16 → 2</strong> feedforward network with Tanh activation. Two outputs: throttle and steering. Built from scratch in C#, including mutation, cloning, and JSON serialization.</p>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>👁️ Perception — 20 inputs</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>8 raycast sensors over a 150° field of view (distance to walls/obstacles)</li>
-              <li>Speed, angular velocity, velocity alignment, throttle, distance from track center</li>
-              <li>Circuit progress and track-direction alignment</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🧬 Genetic Evolution</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Fastest car per generation becomes the parent; brain cloned + mutated (rate 0.15, strength 0.3)</li>
-              <li>Anti-regression best-ever brain; 3× time scale, 30 FPS cap, 180-second races</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🛣️ Procedural Track Generation</summary>
-          <div class="accordion-body">
-            <p>Ellipse + dual-frequency wave perturbations guarantee a closed, non-self-intersecting loop. Auto-builds the road, curb strips, 8 checkpoints, and start line — a unique track every run.</p>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>🎯 Reward Engineering</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Forward bonus, wrong-way penalty, curb slowdown (teaches the optimal line)</li>
-              <li>Progress-scaled rewards, lap +500, crash −100, idle penalty</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion">
-          <summary>💾 Save & Safety</summary>
-          <div class="accordion-body">
-            <ul>
-              <li>Atomic JSON save/load, NaN/Infinity validation with corrupt-save quarantine, rolling 3 saves</li>
-            </ul>
-          </div>
-        </details>
-
+        <h3>What I wanted vs. what actually happened</h3>
+        <p>
+          The cars do learn to follow the track, but they still crash a lot, and the result is not a
+          clean, perfect racing line. It's a training demo, not a finished game — there's no menu or
+          real gameplay, just the simulation running. What I actually got out of it was watching a
+          neural network and a genetic algorithm work end to end, which was the point.
+        </p>
       </div>
 
-      <div style="text-align:center;">
-        <div class="skills-cloud" style="justify-content:center;">
-          <span class="skill-tag">Unity 2022.3</span>
-          <span class="skill-tag">C#</span>
-          <span class="skill-tag">Neural Network</span>
-          <span class="skill-tag">Genetic Algorithm</span>
-          <span class="skill-tag">Raycasting</span>
-        </div>
+      <div style="text-align:center; margin-top: 24px;">
         <p style="margin-top:16px;"><a href="https://github.com/AndyYe2009/formula-0.5" target="_blank" rel="noopener">View the code →</a></p>
       </div>
 
