@@ -35,7 +35,6 @@ function injectNav() {
           <li><a href="projects.html" class="${getActive('projects.html')}">Projects</a></li>
           <li><a href="about.html" class="${getActive('about.html')}">About</a></li>
           <li><a href="hobbies.html" class="${getActive('hobbies.html')}">Hobbies</a></li>
-          <li><a href="contact.html" class="${getActive('contact.html')}">Contact</a></li>
         </ul>
       </div>
     </nav>

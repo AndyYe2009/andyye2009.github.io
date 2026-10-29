@@ -43,7 +43,6 @@ git push -u origin main
 - **个人信息**：修改各 HTML 文件中的姓名、简介等占位内容
 - **项目**：在 `index.html` 和 `projects.html` 中替换项目卡片
 - **技能**：在 `about.html` 中修改技能标签
-- **联系方式**：在 `contact.html` 中替换链接
 - **样式**：在 `css/style.css` 中修改 `:root` 下的 CSS 变量来更换配色
 
 ## 文件结构
@@ -52,7 +51,6 @@ git push -u origin main
 ├── index.html              # 首页
 ├── projects.html           # 项目展示
 ├── about.html              # 关于我
-├── contact.html            # 联系方式
 ├── artwork.html            # 画作详情
 ├── archer-vs-assassin.html # AI 对战详情
 ├── shogun-ai.html          # 游戏自动玩详情
