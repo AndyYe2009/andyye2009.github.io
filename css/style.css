@@ -439,46 +439,6 @@ a:hover { color: var(--color-accent-hover); }
   font-weight: 500;
 }
 
-/* ========================================
-   关于页 (About)
-   ======================================== */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: start;
-}
-
-.about-bio {
-  font-size: 1.05rem;
-  line-height: 1.8;
-}
-
-/* Skills */
-.skills-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.skill-tag {
-  padding: 8px 18px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border-radius: 100px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  transition: all var(--transition);
-}
-
-.skill-tag:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
 /* Timeline */
 .timeline {
   position: relative;
@@ -539,11 +499,6 @@ a:hover { color: var(--color-accent-hover); }
    响应式 (Responsive)
    ======================================== */
 @media (max-width: 768px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
   .projects-grid {
     grid-template-columns: 1fr;
   }
