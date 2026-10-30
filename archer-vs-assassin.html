@@ -48,21 +48,16 @@
 
       <div class="prose">
         <p>
-          This is the biggest project I've attempted. It's a Unity simulation where 100 AI units —
-          50 archers and 50 assassins, split into two teams — fight in a 120×80 arena. Each unit runs
-          a small neural network that decides how to move, aim, and attack. Every generation, the
-          best archer and the best assassin have their "brain" copied to the rest of their class and
-          slightly mutated, so over many generations the units gradually get better.
+          I've been fascinated by watching NPCs in video games ever since I was a child. Attending
+          the Youth AI Camp inspired me to build my own self-playing simulation, Archer vs. Assassin,
+          in Unity.
         </p>
 
-        <h3>What's actually in it</h3>
-        <ul>
-          <li>A hand-written neural network (48 inputs → 48 hidden → 7 outputs) in C#</li>
-          <li>A genetic algorithm that clones and mutates the best units each generation</li>
-          <li>A vision system where teammates share what they see, and cover blocks sight</li>
-          <li>An ammo system for archers, with supply points on the map</li>
-          <li>Save/load, so training can be paused and resumed</li>
-        </ul>
+        <p>
+          In a 120×80 arena, 100 AI units (50 Archers and 50 Assassins) compete using custom neural
+          networks trained via a genetic algorithm. Each generation, top-performing "brains" are
+          cloned and mutated to optimize movement, targeting, and resource management.
+        </p>
 
         <h3>Some of the code</h3>
         <div class="code-gallery">
@@ -74,13 +69,13 @@
           </figure>
         </div>
 
-        <h3>What I wanted vs. what actually happened</h3>
+        <h3>Expectation vs. Reality</h3>
         <p>
-          The tactics you see — staying near an ally, going for ammo when low, using cover — are all
-          rules I gave the units by hand. What I actually hoped for was that the AI would learn to
-          discover <em>new</em> tactics on its own, beyond what I wrote. It didn't get there: the
-          units mostly just follow the rules I gave them, and the neural network hasn't learned to
-          come up with anything genuinely new. That's the part I still want to get working.
+          I originally hoped the AI would spontaneously invent novel group tactics. However, the
+          units mostly fight alone rather than true tactical teamwork. While they didn't discover
+          groundbreaking strategies, identifying this limitation helped me understand the boundaries
+          of my current neural network design and fueled my drive to explore deeper reinforcement
+          learning architectures.
         </p>
       </div>
 

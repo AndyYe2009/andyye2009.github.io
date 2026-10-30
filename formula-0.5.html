@@ -44,27 +44,24 @@
 
       <div class="prose">
         <p>
-          A Unity simulation where 20 AI cars learn to drive around a procedurally generated track.
-          Each car runs a small neural network I wrote in C# (20 inputs → 16 hidden → 2 outputs:
-          throttle and steering). Every generation, the fastest car's brain is copied to all 20 cars
-          with small mutations, so over many generations they get better at getting around the track.
+          After building Archer vs. Assassin, I wanted to tackle continuous vehicle dynamics. I
+          created Formula 0.5 in Unity, where 20 AI cars learn to drive on procedurally generated
+          tracks.
         </p>
 
-        <h3>What's actually in it</h3>
+        <h3>Technical Highlights</h3>
         <ul>
-          <li>A hand-written neural network (20 → 16 → 2) with no external AI libraries</li>
-          <li>8 ray sensors per car, spread over a 150° field of view</li>
-          <li>A genetic algorithm with anti-regression (it keeps the best-ever brain)</li>
-          <li>A track that's generated fresh each run (an ellipse with wavy edges)</li>
-          <li>JSON saving every 5 generations</li>
+          <li><strong>Custom Neural Network:</strong> Built without external libraries (20 inputs → 16 hidden → 2 outputs for steering and throttle).</li>
+          <li><strong>Raycast Sensors:</strong> Each car uses 8 raycast sensors covering a 150° field of view to sense track boundaries.</li>
+          <li><strong>Genetic Algorithm:</strong> Implemented evolutionary training with anti-degradation, cloning and mutating top-performing "brains" each generation, complete with JSON checkpointing.</li>
         </ul>
 
-        <h3>What I wanted vs. what actually happened</h3>
+        <h3>Expectation vs. Reality</h3>
         <p>
-          The cars do learn to follow the track, but they still crash a lot, and the result is not a
-          clean, perfect racing line. It's a training demo, not a finished game — there's no menu or
-          real gameplay, just the simulation running. What I actually got out of it was watching a
-          neural network and a genetic algorithm work end to end, which was the point.
+          While the cars successfully learned track-following behavior, they still struggled with
+          collision avoidance and perfect racing lines. Though a training demo rather than a full
+          game, it successfully validated my end-to-end neural network and evolutionary algorithm
+          pipeline.
         </p>
       </div>
 

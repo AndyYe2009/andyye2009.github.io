@@ -45,21 +45,11 @@
 
       <div class="prose">
         <p>
-          A Python program I made to automatically play Shogun Showdown, a turn-based game I like. It
-          takes a screenshot, uses OpenCV to figure out the game state (my health, enemy positions,
-          what skills are ready), then picks a move and presses the keys. I can run the decisions
-          two ways: a hand-written rule engine (the default), or a local language model through
-          Ollama.
+          As my first AI project, I attempted to automate the commercial game Shogun Showdown using
+          OpenCV for screenshot-based state recognition (health, positions, cooldowns) and simulated
+          keypresses. The system integrated a 600+ line rule engine alongside Ollama and Claude API
+          decision backends.
         </p>
-
-        <h3>What's actually in it</h3>
-        <ul>
-          <li>Screen capture and OpenCV parsing of the game state</li>
-          <li>A rule engine (600+ lines) that decides what to do</li>
-          <li>Optional Ollama backend for decisions</li>
-          <li>A "playbook" that remembers tactics that worked</li>
-          <li>Stuck detection and auto-restart on death</li>
-        </ul>
 
         <h3>Some of the code</h3>
         <div class="code-gallery">
@@ -71,14 +61,12 @@
           </figure>
         </div>
 
-        <h3>What I wanted vs. what actually happened</h3>
+        <h3>Expectation vs. Reality</h3>
         <p>
-          There's a lot in this project I'm not satisfied with. Reading the game screen with computer
-          vision turned out to be much harder than I expected — it misreads things fairly often, so I
-          had to add a lot of checks and fallbacks (stuck detection, cooldown overrides, "just wait a
-          turn" safety nets) just to keep it from breaking. Figuring out which skills are ready is
-          especially unreliable. The rule engine can play, but it's nowhere near a careful human, and
-          I haven't fixed the parts that bother me most.
+          Computer vision proved far too imprecise, frequently misreading states without direct game
+          data access, forcing me to add heavy deadlock protection and fallback checks. Though flawed,
+          this failure provided invaluable hands-on experience, teaching me OpenCV fundamentals and
+          inspiring me to build my own Unity environments for direct neural network integration.
         </p>
       </div>
 
