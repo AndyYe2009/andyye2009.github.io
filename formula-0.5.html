@@ -23,6 +23,9 @@
     .prose ul { margin: 0 0 18px; padding-left: 22px; }
     .prose li { margin-bottom: 6px; }
     .demo-video { width: 100%; max-width: 640px; border-radius: 8px; box-shadow: var(--shadow-md); border: none; aspect-ratio: 16/9; margin: 0 auto 32px; display: block; }
+    .code-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 16px 0; }
+    .code-gallery figure { margin: 0; }
+    .code-gallery img { width: 100%; border-radius: 8px; border: 1px solid rgba(0,0,0,0.12); box-shadow: var(--shadow-sm); display: block; }
   </style>
 </head>
 <body>
@@ -55,6 +58,16 @@
           <li><strong>Raycast Sensors:</strong> Each car uses 8 raycast sensors covering a 150° field of view to sense track boundaries.</li>
           <li><strong>Genetic Algorithm:</strong> Implemented evolutionary training with anti-degradation, cloning and mutating top-performing "brains" each generation, complete with JSON checkpointing.</li>
         </ul>
+
+        <h3>Some of the code</h3>
+        <div class="code-gallery">
+          <figure>
+            <img src="images/formula-0.5-code-1.png" alt="Formula 0.5 C# code screenshot">
+          </figure>
+          <figure>
+            <img src="images/formula-0.5-code-2.png" alt="Formula 0.5 C# code screenshot">
+          </figure>
+        </div>
 
         <h3>Expectation vs. Reality</h3>
         <p>
