@@ -25,6 +25,20 @@
     .artwork-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); display: block; }
     .artwork-text { margin: 16px 0 0; color: var(--color-text-muted); line-height: 1.75; font-size: 0.95rem; }
     .award-note { margin: 12px 0 0; color: var(--color-text-muted); font-size: 0.9rem; }
+    .artwork-card--wide { grid-column: 1 / -1; }
+    .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+      align-items: start;
+    }
+    .portrait-grid img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      display: block;
+    }
   </style>
 </head>
 <body>
@@ -81,6 +95,27 @@
             the water's surface, I boldly rendered the lake in vivid yellows, blending personal
             nostalgia with a novel medium.
           </p>
+        </article>
+
+        <!-- JoJo's Bizarre Adventure -->
+        <article class="artwork-card artwork-card--wide">
+          <h2 class="artwork-title">JoJo's Bizarre Adventure</h2>
+          <p class="artwork-subtitle">Portrait series</p>
+          <p class="artwork-text">
+            Driven by my passion for JoJo's Bizarre Adventure, this portrait series showcases key
+            characters from the series. Rather than full-body poses, I focused on detailed headshots,
+            mimicking Hirohiko Araki's signature style through precise muscular line work and bold,
+            contrasting color schemes to capture their vivid personalities.
+          </p>
+          <div class="portrait-grid">
+            <img src="images/jojo-1.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+            <img src="images/jojo-2.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+            <img src="images/jojo-3.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+            <img src="images/jojo-4.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+            <img src="images/jojo-5.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+            <img src="images/jojo-6.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+            <img src="images/jojo-7.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          </div>
         </article>
 
       </div>
