@@ -17,19 +17,10 @@
     }
     .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
-    .lead { max-width: 700px; margin: 0 auto 48px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
-    .award-list { list-style: none; padding: 0; max-width: 600px; margin: 0 auto; }
-    .award-list li { display: flex; align-items: flex-start; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--color-border); }
-    .award-list li:last-child { border-bottom: none; }
-    .award-icon { font-size: 1.5rem; flex-shrink: 0; }
-    .award-content .award-title { font-weight: 600; color: var(--color-text); }
-    .award-content .award-date { font-size: 0.8rem; color: var(--color-accent); margin-bottom: 2px; }
+    .lead { max-width: 700px; margin: 0 auto 12px; color: var(--color-text-muted); line-height: 1.8; text-align: center; }
     .artwork-title { text-align: center; color: var(--color-text); margin: 48px 0 4px; font-size: 1.4rem; }
     .artwork-subtitle { text-align: center; color: var(--color-text-muted); margin-bottom: 24px; }
-    .art-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto 48px; }
-    .art-gallery figure { margin: 0; }
-    .art-gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); display: block; }
-    .art-gallery figcaption { text-align: center; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px; }
+    .award-note { text-align: center; color: var(--color-text-muted); margin: 0 0 48px; }
   </style>
 </head>
 <body>
@@ -59,27 +50,7 @@
         Youth 2023 Art Creation Activity.
       </p>
 
-      <h2 style="text-align:center;margin-bottom:8px;">Award</h2>
-      <p style="text-align:center;color:var(--color-text-muted);margin-bottom:24px;">The one worth mentioning</p>
-
-      <ul class="award-list">
-        <li>
-          <div class="award-icon">🌟</div>
-          <div class="award-content">
-            <div class="award-date">Sep 2023</div>
-            <div class="award-title">"Award of Excellence" — People's Art Youth</div>
-          </div>
-        </li>
-      </ul>
-
-      <!-- More artworks -->
-      <h2 class="artwork-title">More Artworks</h2>
-      <div class="art-gallery">
-        <figure>
-          <img src="images/comic-level8.jpg" alt="Comic by Andy">
-          <figcaption>Comic</figcaption>
-        </figure>
-      </div>
+      <p class="award-note">This painting received the "Award of Excellence" — People's Art Youth in Sep 2023.</p>
 
     </div>
   </main>
