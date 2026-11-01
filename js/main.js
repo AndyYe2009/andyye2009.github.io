@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   injectFooter();
   initMobileNav();
   initTimelineDrag();
+  initLightbox();
 });
 
 /* ---------- Inject Navigation ---------- */
@@ -107,5 +108,50 @@ function initTimelineDrag() {
       const x = e.pageX - el.offsetLeft;
       el.scrollLeft = scrollLeft - (x - startX);
     });
+  });
+}
+
+/* ---------- Lightbox — click an image to view it fullscreen ---------- */
+function initLightbox() {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.setAttribute('aria-hidden', 'true');
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Close">&times;</button>
+    <img src="" alt="">
+  `;
+  document.body.appendChild(overlay);
+
+  const img = overlay.querySelector('img');
+  const closeBtn = overlay.querySelector('.lightbox-close');
+
+  const open = (src, alt) => {
+    img.src = src;
+    img.alt = alt || '';
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    img.removeAttribute('src');
+  };
+
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') close();
+  });
+
+  document.querySelectorAll('img').forEach((el) => {
+    if (el.closest('.project-card')) return; // card covers navigate instead
+    if (el.closest('.lightbox')) return;
+    el.setAttribute('data-lightbox', '');
+    el.addEventListener('click', () => open(el.src, el.alt));
   });
 }

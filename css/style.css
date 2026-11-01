@@ -703,3 +703,53 @@ details.accordion:hover {
   content: '';
   flex: 0 0 1px;
 }
+
+/* ========================================
+   Lightbox (图片全屏查看)
+   ======================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  cursor: zoom-out;
+}
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+.lightbox img {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  cursor: default;
+}
+.lightbox-close {
+  position: fixed;
+  top: 16px;
+  right: 20px;
+  z-index: 2001;
+  width: 44px;
+  height: 44px;
+  font-size: 2rem;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+img[data-lightbox] {
+  cursor: zoom-in;
+}
