@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Old Shanghai — a watercolor painting of the Bund by Andy">
-  <title>Andy - Old Shanghai — Watercolor</title>
+  <meta name="description" content="Artworks &amp; Sketches — a collection of paintings and sketches by Andy">
+  <title>Andy - Artworks &amp; Sketches</title>
   <link rel="stylesheet" href="css/style.css?v=2">
   <style>
     .project-hero-img {
@@ -24,6 +24,12 @@
     .award-icon { font-size: 1.5rem; flex-shrink: 0; }
     .award-content .award-title { font-weight: 600; color: var(--color-text); }
     .award-content .award-date { font-size: 0.8rem; color: var(--color-accent); margin-bottom: 2px; }
+    .artwork-title { text-align: center; color: var(--color-text); margin: 48px 0 4px; font-size: 1.4rem; }
+    .artwork-subtitle { text-align: center; color: var(--color-text-muted); margin-bottom: 24px; }
+    .art-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto 48px; }
+    .art-gallery figure { margin: 0; }
+    .art-gallery img { width: 100%; border-radius: 8px; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); display: block; }
+    .art-gallery figcaption { text-align: center; font-size: 0.85rem; color: var(--color-text-muted); margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -36,11 +42,15 @@
       <a href="projects.html" class="back-link">← Back to Projects</a>
 
       <div class="page-header">
-        <h1>Old Shanghai — Watercolor</h1>
-        <p>A painting of the Bund, done in watercolor</p>
+        <h1>Artworks &amp; Sketches</h1>
+        <p>My paintings and sketches</p>
       </div>
 
-      <img src="images/peoples-art-youth.jpg" alt="Award of Excellence — People's Art Youth 2023" class="project-hero-img">
+      <!-- First artwork: Old Shanghai -->
+      <h2 class="artwork-title">Old Shanghai — Watercolor</h2>
+      <p class="artwork-subtitle">The Bund, in watercolor</p>
+
+      <img src="images/peoples-art-youth.jpg" alt="Old Shanghai watercolor by Andy" class="project-hero-img">
 
       <p class="lead">
         Inspired by a deep interest in modern history and the TV series The Awakening Age, this
@@ -61,6 +71,15 @@
           </div>
         </li>
       </ul>
+
+      <!-- More artworks -->
+      <h2 class="artwork-title">More Artworks</h2>
+      <div class="art-gallery">
+        <figure>
+          <img src="images/comic-level8.jpg" alt="Comic by Andy">
+          <figcaption>Comic</figcaption>
+        </figure>
+      </div>
 
     </div>
   </main>
