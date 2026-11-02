@@ -10,14 +10,21 @@
     .back-link { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 24px; color: var(--color-text-muted); font-size: 0.9rem; }
     .back-link:hover { color: var(--color-accent); }
     .artworks-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 48px 36px;
+      display: flex;
+      gap: 36px;
       max-width: 1000px;
       margin: 0 auto;
+      align-items: flex-start;
+    }
+    .artworks-col {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
     }
     @media (max-width: 720px) {
-      .artworks-grid { grid-template-columns: 1fr; }
+      .artworks-grid { flex-direction: column; gap: 24px; }
     }
     .artwork-card { display: flex; flex-direction: column; }
     .artwork-title { text-align: center; color: var(--color-text); margin: 0 0 4px; font-size: 1.3rem; }
@@ -25,7 +32,7 @@
     .artwork-img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-lg); display: block; }
     .artwork-text { margin: 16px 0 0; color: var(--color-text-muted); line-height: 1.75; font-size: 0.95rem; }
     .award-note { margin: 12px 0 0; color: var(--color-text-muted); font-size: 0.9rem; }
-    .artwork-card--wide { grid-column: 1 / -1; }
+    .artwork-card--wide { max-width: 1000px; margin: 32px auto 0; }
     .portrait-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -57,105 +64,113 @@
 
       <div class="artworks-grid">
 
-        <!-- Old Shanghai -->
-        <article class="artwork-card">
-          <h2 class="artwork-title">Old Shanghai — Watercolor</h2>
-          <p class="artwork-subtitle">The Bund, in watercolor</p>
-          <img src="images/peoples-art-youth.jpg" alt="Old Shanghai watercolor by Andy" class="artwork-img">
-          <p class="artwork-text">
-            Inspired by a deep interest in modern history and the TV series The Awakening Age, this
-            watercolor painting captures 1980s Shanghai. Using broad brushstrokes and dark tones to
-            evoke a sense of historical depth, the piece received the "Award of Excellence" in the
-            People's Art Youth 2023 Art Creation Activity.
-          </p>
-          <p class="award-note">This painting received the "Award of Excellence" — People's Art Youth in Sep 2023.</p>
-        </article>
+        <div class="artworks-col">
 
-        <!-- Three Body -->
-        <article class="artwork-card">
-          <h2 class="artwork-title">Three Body</h2>
-          <p class="artwork-subtitle">Watercolor</p>
-          <img src="images/three-body.jpg" alt="Three Body watercolor by Andy" class="artwork-img">
-          <p class="artwork-text">
-            A watercolor painting inspired by the sci-fi novel The Three-Body Problem. Captivated by
-            its cosmic scale and futuristic imagination, I sought to bring the book's striking scenes
-            to life, exploring how traditional brushwork can capture the wonder and mystery of deep
-            space.
-          </p>
-        </article>
+          <!-- Old Shanghai -->
+          <article class="artwork-card">
+            <h2 class="artwork-title">Old Shanghai — Watercolor</h2>
+            <p class="artwork-subtitle">The Bund, in watercolor</p>
+            <img src="images/peoples-art-youth.jpg" alt="Old Shanghai watercolor by Andy" class="artwork-img">
+            <p class="artwork-text">
+              Inspired by a deep interest in modern history and the TV series The Awakening Age, this
+              watercolor painting captures 1980s Shanghai. Using broad brushstrokes and dark tones to
+              evoke a sense of historical depth, the piece received the "Award of Excellence" in the
+              People's Art Youth 2023 Art Creation Activity.
+            </p>
+            <p class="award-note">This painting received the "Award of Excellence" — People's Art Youth in Sep 2023.</p>
+          </article>
 
-        <!-- Dishui Lake -->
-        <article class="artwork-card">
-          <h2 class="artwork-title">Dishui Lake</h2>
-          <p class="artwork-subtitle">Oil painting</p>
-          <img src="images/dishui-lake.jpg" alt="Dishui Lake oil painting by Andy" class="artwork-img">
-          <p class="artwork-text">
-            Depicting Dishui Lake, the defining landscape of my hometown, this piece marks my first
-            experiment with oil painting. To capture the intense, brilliant sunlight reflected across
-            the water's surface, I boldly rendered the lake in vivid yellows, blending personal
-            nostalgia with a novel medium.
-          </p>
-        </article>
+          <!-- Dishui Lake -->
+          <article class="artwork-card">
+            <h2 class="artwork-title">Dishui Lake</h2>
+            <p class="artwork-subtitle">Oil painting</p>
+            <img src="images/dishui-lake.jpg" alt="Dishui Lake oil painting by Andy" class="artwork-img">
+            <p class="artwork-text">
+              Depicting Dishui Lake, the defining landscape of my hometown, this piece marks my first
+              experiment with oil painting. To capture the intense, brilliant sunlight reflected across
+              the water's surface, I boldly rendered the lake in vivid yellows, blending personal
+              nostalgia with a novel medium.
+            </p>
+          </article>
 
-        <!-- Once Upon a Time in China -->
-        <article class="artwork-card">
-          <h2 class="artwork-title">Once Upon a Time in China</h2>
-          <p class="artwork-subtitle">Watercolor</p>
-          <img src="images/once-upon-china.jpg" alt="Once Upon a Time in China painting by Andy" class="artwork-img">
-          <p class="artwork-text">
-            Depicting a quiet residential alley in 1980s southern China, this piece captures nostalgic
-            everyday life. Through broad brushstrokes and rich contrast between cool shadowed whitewashed
-            walls and vibrant red window frames, I sought to convey the quiet warmth, rustic textures,
-            and lived-in charm of historic neighborhood lanes.
-          </p>
-        </article>
+        </div>
 
-        <!-- JoJo's Bizarre Adventure -->
-        <article class="artwork-card artwork-card--wide">
-          <h2 class="artwork-title">JoJo's Bizarre Adventure</h2>
-          <p class="artwork-subtitle">Portrait series</p>
-          <p class="artwork-text">
-            Driven by my passion for JoJo's Bizarre Adventure, this portrait series showcases key
-            characters from the series. Rather than full-body poses, I focused on detailed headshots,
-            mimicking Hirohiko Araki's signature style through precise muscular line work and bold,
-            contrasting color schemes to capture their vivid personalities.
-          </p>
-          <div class="portrait-grid">
-            <img src="images/jojo-1.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-            <img src="images/jojo-2.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-            <img src="images/jojo-3.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-            <img src="images/jojo-4.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-            <img src="images/jojo-5.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-            <img src="images/jojo-6.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-            <img src="images/jojo-7.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
-          </div>
-        </article>
+        <div class="artworks-col">
 
-        <!-- Sketches -->
-        <article class="artwork-card artwork-card--wide">
-          <h2 class="artwork-title">Sketches</h2>
-          <p class="artwork-subtitle">Pencil sketches</p>
-          <p class="artwork-text">
-            A collection of my daily sketches. Working with pencil and quick drafts taught me
-            fundamental visual techniques, including precise cross-hatching, balanced composition,
-            and dramatic value contrast. These practical exercises provided an indispensable
-            foundation for my spatial thinking and artistic confidence.
-          </p>
-          <div class="portrait-grid">
-            <img src="images/sketch-1.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-2.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-3.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-4.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-5.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-6.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-7.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-8.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-9.jpg" alt="Sketch by Andy">
-            <img src="images/sketch-10.jpg" alt="Sketch by Andy">
-          </div>
-        </article>
+          <!-- Three Body -->
+          <article class="artwork-card">
+            <h2 class="artwork-title">Three Body</h2>
+            <p class="artwork-subtitle">Watercolor</p>
+            <img src="images/three-body.jpg" alt="Three Body watercolor by Andy" class="artwork-img">
+            <p class="artwork-text">
+              A watercolor painting inspired by the sci-fi novel The Three-Body Problem. Captivated by
+              its cosmic scale and futuristic imagination, I sought to bring the book's striking scenes
+              to life, exploring how traditional brushwork can capture the wonder and mystery of deep
+              space.
+            </p>
+          </article>
+
+          <!-- Once Upon a Time in China -->
+          <article class="artwork-card">
+            <h2 class="artwork-title">Once Upon a Time in China</h2>
+            <p class="artwork-subtitle">Watercolor</p>
+            <img src="images/once-upon-china.jpg" alt="Once Upon a Time in China painting by Andy" class="artwork-img">
+            <p class="artwork-text">
+              Depicting a quiet residential alley in 1980s southern China, this piece captures nostalgic
+              everyday life. Through broad brushstrokes and rich contrast between cool shadowed whitewashed
+              walls and vibrant red window frames, I sought to convey the quiet warmth, rustic textures,
+              and lived-in charm of historic neighborhood lanes.
+            </p>
+          </article>
+
+        </div>
 
       </div>
+
+      <!-- JoJo's Bizarre Adventure -->
+      <article class="artwork-card artwork-card--wide">
+        <h2 class="artwork-title">JoJo's Bizarre Adventure</h2>
+        <p class="artwork-subtitle">Portrait series</p>
+        <p class="artwork-text">
+          Driven by my passion for JoJo's Bizarre Adventure, this portrait series showcases key
+          characters from the series. Rather than full-body poses, I focused on detailed headshots,
+          mimicking Hirohiko Araki's signature style through precise muscular line work and bold,
+          contrasting color schemes to capture their vivid personalities.
+        </p>
+        <div class="portrait-grid">
+          <img src="images/jojo-1.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          <img src="images/jojo-2.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          <img src="images/jojo-3.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          <img src="images/jojo-4.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          <img src="images/jojo-5.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          <img src="images/jojo-6.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+          <img src="images/jojo-7.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
+        </div>
+      </article>
+
+      <!-- Sketches -->
+      <article class="artwork-card artwork-card--wide">
+        <h2 class="artwork-title">Sketches</h2>
+        <p class="artwork-subtitle">Pencil sketches</p>
+        <p class="artwork-text">
+          A collection of my daily sketches. Working with pencil and quick drafts taught me
+          fundamental visual techniques, including precise cross-hatching, balanced composition,
+          and dramatic value contrast. These practical exercises provided an indispensable
+          foundation for my spatial thinking and artistic confidence.
+        </p>
+        <div class="portrait-grid">
+          <img src="images/sketch-1.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-2.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-3.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-4.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-5.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-6.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-7.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-8.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-9.jpg" alt="Sketch by Andy">
+          <img src="images/sketch-10.jpg" alt="Sketch by Andy">
+        </div>
+      </article>
 
     </div>
   </main>
