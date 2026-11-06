@@ -34,6 +34,21 @@
     .award-note { margin: 12px 0 0; color: var(--color-text-muted); font-size: 0.9rem; }
     .artwork-card--wide { max-width: 1000px; margin: 32px auto 0; }
     .portrait-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+      align-items: start;
+    }
+    .portrait-grid img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      display: block;
+    }
+
+    /* JoJo 系列：一幅竖图 + 六幅横图，竖图占左侧两行，横图在右侧排成 3列×2行 */
+    .portrait-grid--jojo {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -41,12 +56,39 @@
       margin-top: 16px;
       align-items: flex-start;
     }
-    .portrait-grid img {
-      width: 170px;
+    .portrait-grid--jojo img {
+      width: 150px;
       max-width: 100%;
       border-radius: 8px;
       box-shadow: var(--shadow-sm);
       display: block;
+    }
+    @media (min-width: 720px) {
+      .portrait-grid--jojo {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 1fr 1fr;
+        gap: 12px;
+        align-items: stretch;
+      }
+      .portrait-grid--jojo img {
+        width: 100%;
+        max-width: none;
+        object-fit: cover;
+      }
+      .portrait-grid--jojo img:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        height: 100%;
+      }
+      .portrait-grid--jojo img:nth-child(n+2) {
+        aspect-ratio: 4 / 3;
+      }
+      .portrait-grid--jojo img:nth-child(2) { grid-column: 2; grid-row: 1; }
+      .portrait-grid--jojo img:nth-child(3) { grid-column: 2; grid-row: 2; }
+      .portrait-grid--jojo img:nth-child(4) { grid-column: 3; grid-row: 1; }
+      .portrait-grid--jojo img:nth-child(5) { grid-column: 4; grid-row: 1; }
+      .portrait-grid--jojo img:nth-child(6) { grid-column: 3; grid-row: 2; }
+      .portrait-grid--jojo img:nth-child(7) { grid-column: 4; grid-row: 2; }
     }
   </style>
 </head>
@@ -139,7 +181,7 @@
           mimicking Hirohiko Araki's signature style through precise muscular line work and bold,
           contrasting color schemes to capture their vivid personalities.
         </p>
-        <div class="portrait-grid">
+        <div class="portrait-grid--jojo">
           <img src="images/jojo-1.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
           <img src="images/jojo-2.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
           <img src="images/jojo-3.jpg" alt="JoJo's Bizarre Adventure portrait by Andy">
