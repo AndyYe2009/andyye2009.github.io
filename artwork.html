@@ -34,14 +34,16 @@
     .award-note { margin: 12px 0 0; color: var(--color-text-muted); font-size: 0.9rem; }
     .artwork-card--wide { max-width: 1000px; margin: 32px auto 0; }
     .portrait-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
       margin-top: 16px;
-      align-items: start;
+      align-items: flex-start;
     }
     .portrait-grid img {
-      width: 100%;
+      width: 170px;
+      max-width: 100%;
       border-radius: 8px;
       box-shadow: var(--shadow-sm);
       display: block;
